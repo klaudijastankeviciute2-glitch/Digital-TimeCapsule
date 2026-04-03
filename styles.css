@@ -732,7 +732,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     /* 3. THE TEXT WRAPPER: Ensures H2 and P stay together */
     .spoon-instructions {
         display: flex !important;
-         color: #000000 !important; /* SOLID BLACK TITLE */
         flex-direction: column !important;
         align-items: center !important;
         width: 90% !important;
