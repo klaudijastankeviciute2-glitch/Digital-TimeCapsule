@@ -602,34 +602,46 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
 /* Mobile */
 @media screen and (max-width: 768px) {
-   #pod-container, .pod-container, .music-container {
+ #pod-container, .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        width: 100vw !important;
+        width: 100% !important;
         height: auto !important;
-        margin: 40px 0 !important;
+        margin: 20px auto !important;
         padding: 0 !important;
-        transform: scale(0.7) !important; /* Forces it to be 30% smaller */
-        transform-origin: top center !important;
+        transform: none !important; /* Remove scale—it's hiding the player */
+    }
+
+    .pod-bg {
+        width: 300px !important;    /* Force the main body size */
+        height: auto !important;
+        position: relative !important;
+        left: 0 !important;
+        margin: 0 auto !important;
+        display: block !important;
     }
 
     .player-screen {
-        position: relative !important;
-        width: 250px !important; 
-        height: 150px !important;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
-        margin-bottom: 20px !important;
+        position: absolute !important; /* Keep it inside the pod-bg */
+        width: 200px !important; 
+        height: 120px !important;
+        left: 50% !important;
+        top: 20% !important;          /* Adjust this % to fit your star/screen */
+        transform: translateX(-50%) !important;
+        background: #000 !important;   /* So you can see if it's there */
+        display: block !important;
+        z-index: 5 !important;
     }
 
     .controls {
-        gap: 20px !important;
-        transform: none !important;
-        width: 100% !important;
+        position: relative !important;
+        display: flex !important;
         justify-content: center !important;
-    }
+        gap: 10px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+        z-index: 10 !important;
     
     #recipe-container, .recipe-container, .plate-section {
         display: flex !important;
