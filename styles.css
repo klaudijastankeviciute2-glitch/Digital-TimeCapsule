@@ -711,7 +711,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
   .spoon-instructions {
         display: block !important;
-        width: 100% !important;
+        width: 50% !important;
         text-align: center !important;
         margin-top: 20px !important;
     }
@@ -724,7 +724,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
     .spoon-instructions p { 
         color: #333333 !important; /* Dark Grey Paragraph */
-        width: 90% !important;
+        width: 40% !important;
         margin: 0 auto !important;
     }
     
