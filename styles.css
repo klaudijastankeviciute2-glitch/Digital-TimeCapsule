@@ -659,56 +659,40 @@ html, body {
         position: relative !important;
     }
 
-    /* 2. THE CONTAINER: We turn this into a simple centered box */
+    /* 2. THE CONTAINER: Simple centered box */
     .pod-container, .music-container {
         display: block !important;
         position: relative !important;
-        width: 90% !important;   /* Fits inside the phone */
+        width: 90% !important; 
         max-width: 400px !important;
         height: auto !important;
         margin: 20px auto !important;
         padding: 10px !important;
-        background: transparent !important; /* No more bulky case */
-        transform: none !important; /* Kills the big zoom/scale */
-        left: 0 !important;
-        top: 0 !important;
+        transform: none !important; /* Vital to stop desktop zooming */
     }
 
-    /* 3. REMOVE THE POD IMAGE ENTIRELY */
-    .pod-bg {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-    }
+    /* --- SECTION 3 DELETED (The Pod Image code is gone) --- */
 
-    /* 4. THE PLAYER SCREEN (The Playlist) */
+    /* 4. THE PLAYER SCREEN: Stacks naturally */
     .player-screen {
         display: block !important;
-        position: relative !important; /* Stacks normally, no floating */
+        position: relative !important; 
         width: 100% !important;
         height: auto !important;
         min-height: 300px !important;
-        background: #000 !important; /* Keep it dark so the text pops */
+        background: #000 !important; 
         border-radius: 15px !important;
         margin-bottom: 20px !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        overflow-y: auto !important; /* Allows scrolling if playlist is long */
+        overflow-y: auto !important; 
     }
 
-    /* 5. THE BUTTONS */
+    /* 5. THE BUTTONS: Sits below the screen */
     .controls {
         display: flex !important;
-        position: relative !important; /* Stacks below the playlist */
+        position: relative !important; 
         width: 100% !important;
         justify-content: center !important;
         gap: 15px !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
     }
 
     .controls button {
