@@ -608,118 +608,104 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         overflow-x: hidden; 
     }
 
-    /* 2. THE MUSIC TAB - FIXING THE '900%' AND 'CUT OFF' */
+   I hear you—I touched the global settings and it threw off your Home screen. Let’s isolate the fixes so they only affect the Music and Food pages, leaving your Home (Bag) exactly how you had it.
+
+The issue was the "Global Overrides" and the composition-container changes. Use this version instead. It keeps the centered food and the fixed music player, but removes the part that was messing with your Home screen.
+
+The "Safe" Mobile Fix
+CSS
+@media screen and (max-width: 768px) {
+    /* 1. MUSIC TAB ONLY */
     .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         width: 100% !important;
         height: auto !important;
-        margin-top: 80px !important;
-        padding-bottom: 50px !important;
+        margin-top: 60px !important;
+        padding-bottom: 40px !important;
     }
 
-    /* Override that 900% width from desktop */
     .pod-bg {
         width: 100% !important; 
-        max-width: 320px !important;
+        max-width: 300px !important; /* Forces the giant pod to be small */
         height: auto !important;
         position: relative !important;
         left: 0 !important;
         transform: none !important;
     }
 
-    /* Making the Player Screen smaller and centered */
     .player-screen {
-        position: relative !important; /* Change from absolute */
-        width: 200px !important;       /* FORCED SMALLER */
-        height: 120px !important;      /* FORCED SMALLER */
-        top: 0 !important;             /* Reset the 60% top */
-        left: 0 !important;            /* Reset the 55% left */
-        transform: none !important;    /* Reset the translate */
-        margin: 20px auto !important;
-        background: #000 !important;
-        aspect-ratio: auto !important; /* Override the 1/1 aspect ratio */
+        position: relative !important; 
+        width: 180px !important;       /* Smaller screen */
+        height: 110px !important; 
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        margin: 15px auto !important;
+        aspect-ratio: auto !important;
     }
 
-    /* Fixing the controls gap (desktop had 200px!) */
     .controls {
         display: flex !important;
         position: relative !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 15px !important;          /* Much smaller gap */
-        transform: none !important;    /* Reset the 110px translate */
-        margin-top: 20px !important;
+        gap: 10px !important;          /* Tight gap */
+        transform: none !important;
+        margin-top: 10px !important;
     }
 
     .controls button {
-        width: 50px !important;
-        height: 50px !important;
-        margin: 0 !important;
+        width: 45px !important;
+        height: 45px !important;
     }
 
-    /* 3. THE FOOD TAB - FIXING THE 'PILE UP' */
+    /* 2. FOOD TAB ONLY - CENTERED STACK */
     .recipe-container, .plate-section {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        padding-top: 50px !important;
-    }
-
-    /* Target all food items to stop them from flying to 'right: 100%' */
-    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
-        position: relative !important; /* Stop the absolute overlap */
-        width: 250px !important;       /* Smaller food images */
         height: auto !important;
-        top: 0 !important;             /* Reset all desktop positions */
-        right: 0 !important;
-        left: 0 !important;
-        bottom: 0 !important;
-        transform: none !important;
-        margin: 15px auto !important;
-        display: block !important;
+        min-height: 100vh !important;
+        overflow-y: auto !important;
+        padding: 60px 0 !important;
     }
 
-    /* The Text Box underneath the food */
-    .spoon-instructions {
+    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
         position: relative !important;
+        width: 240px !important;
+        margin: 15px auto !important;
         top: 0 !important;
         left: 0 !important;
         transform: none !important;
-        width: 90% !important;
-        margin: 20px auto !important;
-        text-align: center !important;
-    }
-
-    .spoon-instructions h2 { font-size: 2rem !important; }
-    .spoon-instructions p { font-size: 1.5rem !important; }
-
-    /* 4. THE HOME TAB - BAG STACKING */
-    .composition-container {
         display: block !important;
+    }
+
+    .spoon-instructions {
         position: relative !important;
-        width: 100% !important;
-        height: 350px !important;
-        margin: 0 auto !important;
+        width: 90% !important;
+        margin: 30px auto !important;
+        text-align: center !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
     }
 
-    .bag-image { width: 100% !important; position: relative !important; }
-
-    .turtle, .bread, .earphones {
-        position: absolute !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+    /* Recovering the font style you liked */
+    .spoon-instructions h2 { 
+        font-family: 'Georgia', serif !important;
+        font-size: 28px !important; 
     }
-    .turtle { top: 80px !important; width: 140px !important; }
-    .bread { top: 30px !important; width: 120px !important; }
-    .earphones { top: 50px !important; width: 180px !important; }
+    .spoon-instructions p { 
+        font-family: 'Georgia', serif !important;
+        font-size: 18px !important; 
+    }
 
-    /* 5. HIDE THE CLUTTER */
+    /* 3. HIDE ONLY BACKGROUND DECORATIONS (To keep it clean) */
     .ipodbg-bg, .buds-bg, .butterfly-bg, .butterfly2-bg, 
-    .butterfly3-bg, .butterfly4-bg, .microphones-bg,
-    .metalplate-bg, .spoon-bg, .flower-bg, .flower2-bg,
-    .venus-bg, .venus2-bg, .stick-bg, .stick2-bg {
+    .microphones-bg, .metalplate-bg, .spoon-bg, .flower-bg, 
+    .flower2-bg, .venus-bg, .venus2-bg {
         display: none !important;
     }
 }
