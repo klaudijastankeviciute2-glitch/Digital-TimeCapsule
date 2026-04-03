@@ -655,72 +655,66 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
      
 html, body {
         overflow-x: hidden !important;
-        width: 100vw !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        width: 100% !important;
+        position: relative !important;
     }
 
-    /* 2. THE POD CONTAINER: Shrunk and Centered */
+    /* 2. THE CONTAINER: We turn this into a simple centered box */
     .pod-container, .music-container {
         display: block !important;
         position: relative !important;
-        width: 90vw !important;    /* Forces it to be 90% of your phone width */
-        max-width: 320px !important; 
-        height: auto !important; 
+        width: 90% !important;   /* Fits inside the phone */
+        max-width: 400px !important;
+        height: auto !important;
         margin: 20px auto !important;
-        padding: 15px !important;
-        background: #1a1a1a !important; /* Dark Case */
-        border-radius: 25px !important;
-        transform: none !important;    /* Kills any giant zooming */
-        left: 0 !important;            /* Resets desktop positioning */
-        right: 0 !important;
-        top: 0 !important;
-    }
-
-    /* 3. THE POD IMAGE: Make it fit the small container */
-    .pod-bg {
-        display: block !important;
-        position: absolute !important;
-        top: 0 !important;
+        padding: 10px !important;
+        background: transparent !important; /* No more bulky case */
+        transform: none !important; /* Kills the big zoom/scale */
         left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: fill !important; /* Stretches to match the new small size */
-        z-index: 1 !important;
+        top: 0 !important;
     }
 
-    /* 4. THE PLAYER SCREEN: Forced to fit inside the Pod */
+    /* 3. REMOVE THE POD IMAGE ENTIRELY */
+    .pod-bg {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    /* 4. THE PLAYER SCREEN (The Playlist) */
     .player-screen {
         display: block !important;
-        position: relative !important; 
-        width: 90% !important;   /* Fits inside the black area */
-        height: 180px !important; /* Shorter for mobile */
-        margin: 10px auto !important;
-        background: #000 !important;
-        z-index: 10 !important;
-        top: 0 !important;       /* Resets desktop float */
+        position: relative !important; /* Stacks normally, no floating */
+        width: 100% !important;
+        height: auto !important;
+        min-height: 300px !important;
+        background: #000 !important; /* Keep it dark so the text pops */
+        border-radius: 15px !important;
+        margin-bottom: 20px !important;
+        top: 0 !important;
         left: 0 !important;
         transform: none !important;
+        overflow-y: auto !important; /* Allows scrolling if playlist is long */
     }
 
-    /* 5. THE CONTROLS: Forced to fit below the screen */
+    /* 5. THE BUTTONS */
     .controls {
         display: flex !important;
-        position: relative !important;
+        position: relative !important; /* Stacks below the playlist */
         width: 100% !important;
         justify-content: center !important;
-        gap: 8px !important;
-        margin-top: 20px !important;
-        z-index: 20 !important;
+        gap: 15px !important;
         top: 0 !important;
         left: 0 !important;
         transform: none !important;
     }
 
     .controls button {
-        width: 45px !important;
+        width: 60px !important;
         height: 45px !important;
-        font-size: 0.7rem !important;
+        font-size: 0.8rem !important;
     }
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
