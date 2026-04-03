@@ -760,39 +760,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         text-align: center !important;
         display: block !important;
     }
-
-   #recipe-result, 
-    .recipe-api-results, 
-    #recipe-display, 
-    .recipe-content,
-    [id*="recipe"], 
-    [class*="recipe"] {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        
-        /* 100% visibility fix */
-        width: 95% !important;          /* Takes up almost full width */
-        min-height: 300px !important;
-        
-        /* THE MOVE: Push it to the right */
-        margin-left: auto !important;   /* Pushes away from the left wall */
-        margin-right: 0 !important;     /* Sticks to the right wall */
-        margin-top: 20px !important;
-        
-        background: #ffffff !important; /* White background for contrast */
-        color: #000000 !important;      /* Black text */
-        padding: 20px !important;
-        border-radius: 15px 0 0 15px !important; /* Rounded corners only on the left for a 'tab' look */
-        
-        /* KILL DESKTOP PINNING */
-        left: auto !important;
-        right: 0 !important;
-        transform: none !important;
-        z-index: 2000 !important;
-        box-sizing: border-box !important;
-    }
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
