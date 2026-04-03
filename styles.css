@@ -723,6 +723,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 1.4rem !important; 
         margin: 10px 0 !important;
         line-height: 1.2 !important;
+        z-index: -1;
     }
 
     .spoon-instructions p { 
@@ -733,6 +734,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 1rem !important; 
         margin: 0 auto !important;
         line-height: 1.4 !important;
+        z-index: -1;
     }
     
     /* Keeping your plate logic exactly as you had it */
