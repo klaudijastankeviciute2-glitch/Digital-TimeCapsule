@@ -709,50 +709,61 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-I hear you—if the "invisible box" around the instructions is so huge that it's acting like a shield over your kimchi and goat cheese, we need to shrink the footprint of that container.
+    /* 1. THE FOOD: Force it to be the Hero */
+    .food-item, .plate-food, [class*="food"], [class*="kimchi"], [class*="pickle"] { 
+        display: block !important;
+        position: relative !important;
+        
+        /* FORCE SIZE: No more 'small' food */
+        width: 320px !important; 
+        height: auto !important;
+        margin: 10px auto !important;
+        
+        /* THE TOUCH FIX: Nuclear Z-index */
+        z-index: 99999 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
 
-The reason it's "too damn big" is likely the width: 50% and width: 40% you're using. On mobile, a 40% width forces the text to wrap into a very tall, skinny skyscraper that covers the middle of your screen from top to bottom.
-
-Let's "attack" the instructions by shrinking their height, killing their padding, and forcing them to stay away from the food's touch zone.
-
-The "Shrink the Shield" Attack
-Replace your .spoon-instructions blocks with this "low-profile" version:
-
-CSS
-    /* 1. THE INSTRUCTIONS CONTAINER: Shrink it so it doesn't overlap */
+    /* 2. THE INSTRUCTIONS: Shrink the 'Shield' */
     .spoon-instructions {
         display: block !important;
-        /* Width: 90% lets the text spread out so the box isn't so TALL */
-        width: 95% !important; 
-        max-width: 100% !important;
-        margin: 10px auto !important; /* Small top margin to stay away from food */
-        padding: 0 !important;       /* Kill extra padding that creates 'dead space' */
-        
-        /* THE CRITICAL FIXES */
-        position: relative !important;
-        height: auto !important;     /* Only as tall as the words themselves */
-        pointer-events: none !important; /* Makes the BOX 'ghost-like' */
-        z-index: 1 !important;        /* Moves it behind the food layer */
-    }
-
-    /* 2. THE WORDS: Make ONLY the words clickable, not the empty space around them */
-    .spoon-instructions h2, 
-    .spoon-instructions p {
-        width: 100% !important;      /* Let them use the full 95% width */
-        margin: 5px auto !important;
-        pointer-events: auto !important; /* You can still touch the actual text */
-        text-align: center !important;
-    }
-
-    /* 3. THE FOOD: The 'Front Row' Seat */
-    .food-item, .plate-food, [class*="food"], [class*="kimchi"] { 
-        display: block !important;
-        position: relative !important;
-        z-index: 9999 !important;    /* Force to the very front */
-        pointer-events: auto !important; 
-        width: 280px !important;
+        width: 100% !important; /* Full width so text doesn't stack high */
         margin: 0 auto !important;
-        cursor: pointer !important;
+        padding: 0 !important;
+        
+        /* THE TOUCH FIX: Ghost the container */
+        position: relative !important;
+        z-index: 1 !important;
+        pointer-events: none !important; 
+    }
+
+    /* 3. THE TEXT: Attack the size */
+    .spoon-instructions h2 { 
+        /* SMALLER FONT: Forced with pixels */
+        font-size: 22px !important; 
+        color: #000000 !important;
+        margin: 5px 0 !important;
+        line-height: 1.1 !important;
+        pointer-events: auto !important;
+    }
+
+    .spoon-instructions p { 
+        /* SMALLER FONT: Forced with pixels */
+        font-size: 16px !important; 
+        color: #333333 !important;
+        width: 85% !important; /* Narrower than the header for style */
+        margin: 0 auto !important;
+        line-height: 1.3 !important;
+        pointer-events: auto !important;
+    }
+
+    /* 4. THE PLATE: Keep it at the bottom */
+    .metalplate-bg {
+        width: 180% !important;
+        right: -40% !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
     }
     .contact-section {
         width: 90% !important; 
