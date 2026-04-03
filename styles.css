@@ -714,63 +714,76 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
       }
     
 .recipe-container, .plate-section, #recipe-container {
+
         display: flex !important;
+
         flex-direction: column !important;
-        align-items: center !important;
+
+        align-items: center !important;    /* FORCES HORIZONTAL CENTERING */
+
         justify-content: flex-start !important;
-        
+
         width: 100% !important;
-        height: auto !important; 
-        min-height: 1200px !important; /* Forces room for all ingredients */
-        
-        overflow-y: visible !important;
-        overflow-x: hidden !important; 
-        padding-top: 60px !important;
-        padding-bottom: 100px !important;
-        background: #ffffff !important;
-    }
 
-    /* 2. THE FOOD ITEMS: Vertical stack */
-    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
-        position: relative !important;
-        display: block !important;
-        width: 260px !important;
-        margin: 20px auto !important;
+        height: auto !important; min-height: 100vh !important;
+
+        overflow-x: hidden !important;     /* Kills the side-slide */
+
+        overflow-y: auto !important;       /* Allows normal scrolling */
+
+        padding: 60px 0 !important;
+
+        background: #ffffff !important; 
+} 
+  
+    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese { position: relative !important;   display: block !important;
+
+        width: 280px !important;           /* Consistent size */
+
+        margin: 20px auto !important;      /* Centers the image */
+
         top: 0 !important;
+
         left: 0 !important;
+
         right: 0 !important;
+
         transform: none !important;
+
         z-index: 10 !important;
-    }
 
-    /* 3. THE PLATE/INSTRUCTIONS: Centered and Visible */
-    .spoon-instructions {
-        position: relative !important;
+    }  
+
+    .spoon-instructions {  position: relative !important;
+
         display: block !important;
+
         width: 90% !important;
-        margin: 40px auto !important;
-        text-align: center !important;
-        
-        /* Resetting desktop pulls */
+
+        margin: 40px auto !important;      /* Centers the text block */
+
+        text-align: center !important;     /* Centers text inside */
+
         top: 0 !important;
+
         left: 0 !important;
+
         right: 0 !important;
+
         transform: none !important;
+
+ }
+    .spoon-instructions h2 { font-size: 2.2rem !important; margin: 0 auto !important; }
+
+    .spoon-instructions p { font-size: 1.4rem !important; margin: 0 auto !important; }
+
+
+    .metalplate-bg, .spoon-bg, .flower-bg, .flower2-bg {
+
+        display: none !important;
     }
 
-    /* 4. FONT FIX: Hardcoding pixels so they don't disappear */
-    .spoon-instructions h2 { 
-        font-family: 'Georgia', serif !important;
-        font-size: 30px !important; 
-        color: #000 !important;
-        margin: 10px 0 !important;
-    }
 
-    .spoon-instructions p { 
-        font-family: 'Georgia', serif !important;
-        font-size: 18px !important; 
-        color: #888383 !important;
-    }
     
     .contact-section {
         width: 90% !important; 
