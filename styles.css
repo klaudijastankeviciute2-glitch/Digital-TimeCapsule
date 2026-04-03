@@ -713,59 +713,47 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         margin: 0 !important;
       }
     
-  That makes perfect sense. Because we have so many food items (Kimchi, Pickles, Hummus, etc.) now standing in a "line" instead of being pinned to one spot, the page has become very long.
-
-If the "Plate" (the background or the bottom area) is off-screen, we need to ensure the Container doesn't have overflow: hidden and that the body is allowed to scroll naturally.
-
-The "Scrollable Food" Fix
-Add this specific block to your @media query. It ensures the container expands to fit every single piece of food so you can scroll down to the "Plate" and the instructions.
-
-CSS
-    /* 1. THE FOOD CONTAINER: Must be allowed to grow */
-   .recipe-container, .plate-section, #recipe-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important; /* Align to the start (left) */
-        
+ .recipe-container, .plate-section {
+        display: block !important; /* Switch to block to allow absolute children */
         width: 100% !important;
         height: auto !important;
         min-height: 1200px !important;
-        
-        /* CHANGE THIS: 'scroll' allows the finger slide */
+        overflow-x: auto !important; /* This enables the horizontal swipe */
         overflow-y: visible !important;
-        overflow-x: scroll !important; 
-        -webkit-overflow-scrolling: touch; /* Makes the slide feel smooth */
-        
-        padding-top: 60px !important;
-        padding-bottom: 100px !important;
-        background: #ffffff !important;
+        -webkit-overflow-scrolling: touch;
+        position: relative !important;
+        white-space: nowrap !important; /* Prevents items from wrapping down */
     }
 
-    /* 2. THE FOOD ITEMS: Keep them pinned to the left so the plate can be on the right */
+    /* 2. THE FOOD: Stay on the left 'track' */
     .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
-        position: relative !important;
         display: block !important;
-        width: 260px !important;
-        margin: 20px 0 20px 20px !important; /* Pushes food slightly from the left edge */
+        position: relative !important;
+        width: 280px !important;
+        margin: 20px 0 20px 20px !important; /* Keeps food on the left */
         left: 0 !important;
         transform: none !important;
     }
 
-    /* 3. THE PLATE: This is what you 'slide' to see */
+    /* 3. THE PLATE: Hidden off the RIGHT edge */
     .spoon-instructions {
-        position: relative !important;
-        display: inline-block !important; /* Allows it to ignore the container width */
-        width: 350px !important;          /* Fixed width so it doesn't squish */
+        position: absolute !important; 
+        top: 60px !important;      /* Adjust this to align with specific food */
         
-        /* PUSH IT TO THE RIGHT: This forces the 'slide' action */
-        margin-left: 50% !important;      
-        margin-top: 40px !important;
+        /* THIS IS THE KEY: */
+        left: 100% !important;     /* Pushes the plate exactly off the right edge */
+        margin-left: 20px !important; /* Adds a small gap before the plate starts */
         
+        width: 320px !important;   /* Fixed width so it doesn't squish */
+        display: inline-block !important;
         text-align: center !important;
-        top: 0 !important;
-        left: 0 !important;
         transform: none !important;
-      }
+    }
+
+    /* 4. THE TEXT: Clean up for mobile */
+    .spoon-instructions h2 { font-size: 2.2rem !important; white-space: normal !important; }
+    .spoon-instructions p { font-size: 1.4rem !important; white-space: normal !important; }
+    
     .contact-section {
         width: 90% !important; 
         margin: 40px auto !important;
