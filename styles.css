@@ -663,55 +663,53 @@ CSS
         transform: translateX(-50%) rotate(-15deg) !important; 
     }
     
-.pod-container, .music-container {
+.music-section, section[class*="music"], .main-wrapper {
+        display: block !important;
+        height: auto !important;          /* Kills the 'Rectangle' limit */
+        min-height: 100vh !important;     /* Ensures it takes up the full screen */
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
+
+    /* 2. THE POD CONTAINER: No more scrolling */
+    .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         
-        /* Forces the 'window' to disappear and show everything */
-        height: auto !important;           
-        max-height: none !important;      
-        overflow: visible !important;      
+        position: relative !important;
+        height: auto !important;          /* RE-KILL fixed height */
+        max-height: none !important;
+        overflow: visible !important;     /* RE-KILL scrollbars */
         
         width: 100% !important;
-        margin: 40px auto !important;
-        padding: 20px 0 !important;
-        background: transparent !important;
-        border: none !important;
-        transform: scale(0.85) !important; 
+        margin-top: 80px !important;      /* Push away from logo */
+        transform: scale(0.8) !important; 
         transform-origin: center top !important;
     }
 
-    /* 2. THE PLAYER SCREEN: Slimmer for mobile */
+    /* 3. THE PLAYER SCREEN: Smaller to fit the 'Rectangle' better */
     .player-screen {
         display: block !important;
         position: relative !important;
-        width: 280px !important;           
-        height: 180px !important;          /* Shorter to ensure it fits */
-        margin: 0 auto 25px auto !important; 
+        width: 260px !important;          /* Slightly narrower */
+        height: 160px !important;         /* Much shorter */
+        margin: 0 auto 30px auto !important;
         background: #000 !important;
-        border-radius: 15px !important;
+        border-radius: 12px !important;
         z-index: 10 !important;
     }
 
-    /* 3. THE BUTTONS: No longer trapped at the bottom */
+    /* 4. THE CONTROLS: Force them to stay at the bottom of the stack */
     .controls {
         display: flex !important;
         position: relative !important;
         width: 100% !important;
         justify-content: center !important;
         gap: 15px !important;
-        margin: 0 auto !important;
-        padding-bottom: 50px !important; 
+        padding-bottom: 100px !important; /* Forces the container to grow */
         z-index: 20 !important;
-    }
-
-    .controls button {
-        width: 60px !important;
-        height: 60px !important;
-        background: #333 !important;
-        border-radius: 50% !important;
-        flex-shrink: 0 !important;
      }
     
     .plate-section, .recipe-container, #recipe-container {
