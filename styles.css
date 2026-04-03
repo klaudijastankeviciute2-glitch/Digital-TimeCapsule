@@ -602,14 +602,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
 /* Mobile */
 @media screen and (max-width: 768px) {
-    /* 1. GLOBAL OVERRIDES */
-    html, body { 
-        background: #ffffff !important; 
-        overflow-x: hidden; 
-    }
-
-    
-@media screen and (max-width: 768px) {
    #pod-container, .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
