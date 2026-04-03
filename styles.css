@@ -618,23 +618,26 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         transform: translateY(20px);
     }
 
-    .earphones {
-      display: block !important;
+   .earphones {
+        display: block !important;
         position: absolute !important;
         width: 75% !important; 
         left: 5% !important;   
-        top: 2% !important;    
-        z-index: 15 !important; 
+        top: 5% !important;    
+        z-index: 99 !important; /* Extremely high to ensure visibility */
+        opacity: 1 !important;
     }
 
     .turtle {
-       width: 55% !important;
+        display: block !important;
+        width: 55% !important;
         left: 20% !important;
         top: 22% !important;
-        z-index: 10;
+        z-index: 10 !important;
     }
 
     .bread {
+        display: block !important;
         width: 50% !important;
         left: 40% !important;
         top: 15% !important;
@@ -643,12 +646,12 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
     .clipboard {
+        display: block !important;
         width: 80% !important;
         right: -10% !important;
         left: auto !important;
         top: 0% !important;
         z-index: 1;
-        }
     }
 
     .modal-content, .modal-content.layered-modal {
