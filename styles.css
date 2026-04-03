@@ -653,54 +653,47 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         z-index: 4;
     }
      
-  .pod-container, .music-container {
-    position: relative !important;
-        width: 320px !important;  /* Width of a standard phone screen */
-        height: 550px !important; /* FORCED HEIGHT: This creates the 'room' */
-        margin: 20px auto !important;
+div.pod-container, div.music-container {
         display: block !important;
-        overflow: visible !important;
+        position: relative !important;
+        width: 340px !important;  /* Wider */
+        height: 600px !important; /* Much Taller */
+        margin: 20px auto !important;
+        transform: none !important; /* Removes any accidental zooming */
     }
 
-    .pod-bg {
-   position: absolute !important;
+ div.pod-container img.pod-bg, div.music-container img.pod-bg {
+        display: block !important;
+        position: absolute !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 100% !important; /* Matches the 550px container */
-        object-fit: fill !important; /* This is the secret: it forces the image to stretch */
-        z-index: 1;
+        height: 100% !important;
+        object-fit: fill !important; /* Forces the image to stretch vertically */
+        z-index: 1 !important;
     }
 
-    .player-screen {
-  display: block !important;
+    div.pod-container .player-screen, div.music-container .player-screen {
+        display: block !important;
         position: absolute !important;
-        width: 80% !important;   
-        height: 200px !important; /* Give your player enough height here */
-        top: 45px !important;    /* Positioned in the screen 'window' */
+        width: 280px !important;  /* Fixed width to fit the pod face */
+        height: 220px !important; /* Fixed height */
+        top: 50px !important;     /* Distance from top of Pod */
         left: 50% !important;
         transform: translateX(-50%) !important;
-        background: #000 !important;
         z-index: 10 !important;
-        border-radius: 10px;
-    }
-
-    .controls {
-   display: flex !important;
+        background: black !important;
+        
+  div.pod-container .controls, div.music-container .controls {
+        display: flex !important;
         position: absolute !important;
-        width: 80% !important;
-        bottom: 60px !important; /* Pushed up onto the click-wheel */
+        width: 250px !important;
+        bottom: 70px !important;  /* Distance from bottom of Pod */
         left: 50% !important;
         transform: translateX(-50%) !important;
         z-index: 20 !important;
     }
-
-    .controls button {
-        width: 60px;
-        height: 40px;
-        font-size: 0.7rem;
-    }
-
+        
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
     
