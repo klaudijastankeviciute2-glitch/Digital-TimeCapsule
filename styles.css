@@ -121,7 +121,7 @@ position: absolute;
     width: 100%; 
     max-width: 1200px;
   transform: translateY(50px);
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
 }
