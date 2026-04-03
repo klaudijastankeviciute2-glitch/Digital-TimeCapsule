@@ -628,11 +628,10 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
     .turtle {
-        display: block !important;
-        width: 50% !important; 
-        left: 20% !important; 
-        top: 25% !important; 
-        z-index: 9; 
+       width: 55% !important;
+        left: 20% !important;
+        top: 22% !important;
+        z-index: 10;
     }
 
     .bread {
