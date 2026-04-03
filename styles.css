@@ -758,13 +758,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         pointer-events: auto !important;
     }
 
-    /* 4. THE PLATE: Keep it at the bottom */
-    .metalplate-bg {
-        width: 180% !important;
-        right: -40% !important;
-        z-index: 0 !important;
-        pointer-events: none !important;
-    }
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
