@@ -656,6 +656,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         top: 0% !important;
         z-index: 1;
     }
+     }
 
     .modal-content, .modal-content.layered-modal {
         width: 95vw !important;
