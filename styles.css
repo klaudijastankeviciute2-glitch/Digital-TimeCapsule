@@ -625,38 +625,50 @@ display: block !important;
         transform-origin: center top !important;
     }
 
-    /* 2. THE BAG: Stays as a normal image */
+  .composition-container {
+        display: block !important; 
+        position: relative !important; /* This is the 'box' that holds the bag */
+        width: 100% !important;
+        height: 350px !important;      /* Match this to the bag's visual height */
+        margin: 0 auto !important;
+        transform: scale(0.8) !important;
+        transform-origin: center top !important;
+        overflow: visible !important;
+    }
+
+    /* 2. THE BAG: The base layer */
     .bag-image, [class*="bag"], img[src*="bag"] {
         display: block !important;
         width: 100% !important;
         height: auto !important;
-        position: relative !important;
-        z-index: 1 !important; /* Sits at the bottom */
+        position: relative !important; 
+        z-index: 1 !important; /* Sits at the bottom/back */
     }
 
-    /* 3. THE ITEMS: Pinned INSIDE the bag area */
-    .turtle, .bread, .earphones, .composition-container img:not([class*="bag"]) {
-        position: absolute !important; 
+    /* 3. THE ITEMS: These now "Float" ON TOP of the bag */
+    .turtle, .bread, .earphones, [class*="turtle"], [class*="bread"], [class*="earphones"] {
         display: block !important;
+        position: absolute !important; /* This 'lifts' them out of the line */
         left: 50% !important;
-        transform: translateX(-50%) !important; /* Keeps them centered */
-        z-index: 10 !important; /* Forces them ON TOP of the bag */
+        transform: translateX(-50%) !important;
+        z-index: 10 !important; /* Forces them in front of the bag */
     }
 
-    /* Adjust these 'top' numbers to move them into the bag opening */
+    /* 4. PINNING THEM TO THE BAG OPENING */
+    /* Adjust these numbers until they sit perfectly inside the bag */
     .earphones { 
         width: 220px !important;
-        top: 60px !important; 
+        top: 40px !important; 
     }
 
     .turtle { 
-        width: 160px !important;
-        top: 100px !important; 
+        width: 170px !important;
+        top: 80px !important; 
     }
 
     .bread { 
         width: 140px !important;
-        top: 40px !important; 
+        top: 20px !important; 
         transform: translateX(-50%) rotate(-15deg) !important;
     }
     
