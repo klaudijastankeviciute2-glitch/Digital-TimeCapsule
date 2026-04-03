@@ -623,32 +623,27 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
    .earphones {
-     display: block !important;
+   display: block !important;
         position: absolute !important;
-        width: 45% !important;
-        margin-left: -20px !important; 
-        margin-top: 10px !important;
-        left: 0 !important;
-        top: 0 !important;
-        z-index: 1 !important;
+        width: 250px !important;  
+        left: -40px !important;    
+        top: 120px !important;   
+        z-index: 5 !important;
     }
 
     .turtle {
-   display: block !important;
+ display: block !important;
         position: absolute !important;
-        width: 55% !important;
-        margin-left: 120px !important; 
-        margin-top: 70px !important; 
-        left: 0 !important;
-        top: 0 !important;
-        z-index: 999 !important;
+        width: 180px !important;  
+        left: 100px !important; 
+        top: 160px !important;   
+        z-index: 10 !important;  
     }
 
     .bread {
-        display: block !important;
-        width: 50% !important;
-        left: 40% !important;
-        top: 15% !important;
+      width: 180px !important;
+        left: 140px !important;
+        top: 130px !important;    
         transform: rotate(-30deg) !important;
         z-index: 4;
     }
