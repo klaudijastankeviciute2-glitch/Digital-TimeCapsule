@@ -709,48 +709,37 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.food-item, .plate-food, [class*="food"] { 
-        display: block !important;
-        visibility: visible !important;
+.food-item, 
+    .plate-food, 
+    [class*="kimchi"], 
+    [class*="pickle"], 
+    [class*="cheese"], 
+    [id*="food"] { 
         position: relative !important;
-        
-        /* THE LAYER FIX */
-        z-index: 99999 !important; /* Higher than any other element */
-        pointer-events: auto !important; /* Forces it to be touchable */
+        z-index: 999999 !important; /* THE NUCLEAR OPTION */
+        pointer-events: auto !important; /* MUST BE AUTO TO BE TAPPABLE */
         cursor: pointer !important;
-        
-        /* YOUR LAYOUT */
-        width: 280px !important;
-        margin: 0 auto !important;
-        transform: none !important;
     }
 
-    /* 2. THE TEXT: Push it back in the 3D stack */
+    /* 2. THE TEXT CONTAINER: Move it to the back */
     .spoon-instructions {
-        display: block !important;
-        width: 50% !important; /* Keeping your 50% */
-        margin: 20px auto !important;
         position: relative !important;
-        
-        /* THE LAYER FIX */
-        z-index: 1 !important; /* Moves it behind the food layer */
-        pointer-events: none !important; /* Clicks pass through the gaps */
+        z-index: 1 !important; /* Pushes the 'box' behind the food */
+        pointer-events: none !important; /* Clicks go THROUGH the empty space */
     }
 
-    /* 3. THE ACTUAL WORDS: Make them touchable but stay back */
+    /* 3. THE ACTUAL TEXT: Keep it readable but not blocking */
     .spoon-instructions h2, 
     .spoon-instructions p {
         position: relative !important;
-        z-index: 1 !important;
-        pointer-events: auto !important;
+        z-index: 2 !important; 
+        pointer-events: auto !important; /* So you can still interact with text if needed */
     }
 
-    /* 4. THE PLATE: Ensure it isn't blocking the food */
-    .metalplate-bg { 
-        width: 180% !important; 
-        right: -40% !important; 
-        z-index: 0 !important; /* Must be the lowest layer */
-        pointer-events: none !important; 
+    /* 4. THE PLATE: Make sure it's the very bottom layer */
+    .metalplate-bg {
+        z-index: 0 !important;
+        pointer-events: none !important; /* Finger ignores the plate entirely */
     }
     .contact-section {
         width: 90% !important; 
