@@ -659,65 +659,79 @@ html, body {
         position: relative !important;
     }
 
- .pod-container, .music-container {
-        display: block !important;
+.pod-container, .music-container {
+        display: flex !important;
+        flex-direction: column !important; /* Forces things to stack vertically */
         position: relative !important;
-        width: 90% !important;
-        max-width: 350px !important;
-        margin: 40px auto !important; /* The 'auto' centers it horizontally */
+        width: 90vw !important;           /* 90% of the actual phone width */
+        height: auto !important;           /* Let it grow as tall as it needs */
+        min-height: 450px !important;
+        margin: 40px auto !important;      /* Centered */
         padding: 20px !important;
-        background: #111 !important; /* Dark 'case' */
+        background: #111 !important;       /* The dark player 'body' */
         border-radius: 20px !important;
-        /* THE RESET: Kills the desktop 'Top/Left' coordinates */
+        
+        /* KILL DESKTOP GHOSTS */
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
+        bottom: 0 !important;
         transform: none !important;
         float: none !important;
+        overflow: visible !important;      /* Prevents buttons from being cut off */
     }
 
-    /* 2. THE PLAYER SCREEN: Your Playlist */
+    /* 2. KILL THE POD IMAGE FOR GOOD */
+    .pod-bg {
+        display: none !important;
+    }
+
+    /* 3. THE PLAYER SCREEN: Your Playlist */
     .player-screen {
         display: block !important;
         position: relative !important;
         width: 100% !important;
-        height: 300px !important; /* Fixed height for the playlist */
-        background: #000 !important;
+        height: 280px !important;         /* Fixed height so it doesn't vanish */
+        background: black !important;     /* Pure black screen */
+        border: 2px solid #333 !important; /* Grey border so you can see the edges */
         border-radius: 10px !important;
-        margin-bottom: 25px !important; /* Space for the buttons below */
-        overflow-y: auto !important;
-        z-index: 5 !important;
+        margin-bottom: 30px !important;   /* HUGE GAP for the buttons */
+        
+        /* RESET POSITION */
         top: 0 !important;
         left: 0 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    /* 3. THE BUTTONS: Forced to appear and stack */
+    /* 4. THE BUTTONS: Forced to the front and centered */
     .controls {
         display: flex !important;
-        flex-direction: row !important; /* Side-by-side buttons */
         position: relative !important;
         width: 100% !important;
+        height: 60px !important;
         justify-content: center !important;
-        gap: 15px !important;
-        z-index: 999 !important; /* Keep them on top */
+        align-items: center !important;
+        gap: 20px !important;
+        
+        /* RESET POSITION */
         top: 0 !important;
         left: 0 !important;
-        min-height: 50px !important;
-        /* DEBUG: Remove this red line once you see the buttons */
-        border: 2px solid red !important; 
+        z-index: 9999 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .controls button {
         display: inline-block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        width: 60px !important;
-        height: 45px !important;
-        background: #333 !important; /* Grey so they are visible on black */
+        width: 65px !important;
+        height: 50px !important;
+        background: #444 !important;      /* Dark grey buttons */
         color: white !important;
-        border: 1px solid #555 !important;
+        border: 1px solid white !important;
         border-radius: 5px !important;
-    }
+        font-size: 0.9rem !important;
+     }   
     
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
