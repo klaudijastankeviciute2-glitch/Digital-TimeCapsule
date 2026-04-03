@@ -714,72 +714,65 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-   /* 1. THE CAGE: Force the main container to be a vertical stack */
-    .plate-section, 
-    .recipe-container, 
-    #recipe-section {
+#recipe-container, .plate-section, .food-section {
         display: flex !important;
-        flex-direction: column !important; /* Forces Food on top, Text on bottom */
+        flex-direction: column !important; 
         align-items: center !important;
-        width: 100vw !important;
+        width: 100% !important;
         height: auto !important;
-        min-height: 100vh !important;
         margin: 0 !important;
-        padding: 20px 0 !important;
-        left: 0 !important;
-        background: #fff !important; /* White background to see the black text */
+        padding: 0 !important;
     }
 
-    /* 2. THE FOOD: High-Priority Row */
-    .food-item, .plate-food, [class*="food"], [class*="kimchi"] { 
+    /* 2. THE FOOD: Front Row & Tappable */
+    #food-display, .food-item, [id*="food"], [class*="food"] {
         display: block !important;
         position: relative !important;
-        
-        /* FORCE SIZE */
-        width: 300px !important; 
+        width: 300px !important; /* LARGE FOOD */
         height: auto !important;
-        margin: 0 auto 30px auto !important; /* Bottom margin pushes text away */
+        margin: 20px auto !important;
         
-        /* TOUCH FIX */
-        z-index: 9999 !important;
+        /* THE TOUCH FIX: Puts Kimchi/Pickles in front of the 'glass' */
+        z-index: 99999 !important; 
         pointer-events: auto !important;
-        
-        /* KILL DESKTOP POSITIONS */
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
+        cursor: pointer !important;
     }
 
-    /* 3. THE TEXT: Secondary Row (Underneath) */
-    .spoon-instructions {
+    /* 3. THE INSTRUCTIONS: Shrink the 'Shield' */
+    #spoon-instructions, .spoon-instructions {
         display: block !important;
-        width: 90% !important; /* Wide enough to fit words on one line */
+        width: 100% !important; /* Full width means the box is shorter */
         margin: 0 auto !important;
         padding: 0 !important;
         position: relative !important;
-        text-align: center !important;
-        z-index: 1 !important;
+        
+        /* THE TOUCH FIX: Makes the box transparent to your finger */
+        pointer-events: none !important; 
+        z-index: 1 !important; 
     }
 
-    /* 4. ATTACK THE FONT SIZE */
+    /* 4. THE TEXT: Attack the size directly with Pixels */
     .spoon-instructions h2 { 
         color: #000000 !important;
-        font-size: 24px !important; /* Forced PX size */
-        margin-bottom: 10px !important;
-        line-height: 1.2 !important;
+        font-size: 22px !important; /* Forced small size */
+        margin: 10px 0 !important;
+        line-height: 1.1 !important;
+        pointer-events: auto !important; /* Only words are clickable */
     }
 
     .spoon-instructions p { 
         color: #333333 !important;
-        font-size: 16px !important; /* Forced PX size */
-        line-height: 1.4 !important;
+        font-size: 16px !important; /* Forced small size */
+        width: 85% !important;
         margin: 0 auto !important;
-        width: 100% !important;
+        line-height: 1.4 !important;
+        pointer-events: auto !important;
     }
 
-    /* 5. KILL THE BLOCKERS */
-    .metalplate-bg, .spoon-bg, .spoon-instructions img {
+    /* 5. THE GHOSTS: Ensure the plate isn't blocking anything */
+    #metalplate-bg, .metalplate-bg, #spoon-bg {
         display: none !important;
+        visibility: hidden !important;
     }
 
     .contact-section {
