@@ -744,6 +744,9 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         margin: 20px auto !important;
         text-align: center !important;
          }
+
+.spoon-instructions h2 { font-size: 2rem !important; }
+    .spoon-instructions p { font-size: 1.5rem !important; }
     
     .contact-section {
         width: 90% !important; 
