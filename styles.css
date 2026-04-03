@@ -709,75 +709,88 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
     
-  .plate-section, .recipe-container {
+  Smart move. The plate and the spoon were using complex "layered" positioning that is a nightmare to manage on a 390px wide phone screen. By removing them, we can let the Recipe API and the Food breathe in a clean, vertical layout.
+
+Here is the "Clean Food" mobile code. This focuses entirely on making the food look good and the recipe readable.
+
+The "Clean Food & Recipe" Mobile Reset
+Replace your plate/spoon/recipe section in the @media query with this:
+
+CSS
+    /* 1. THE MAIN SECTION: A clean, dark container for the food info */
+    .plate-section, .recipe-container, .food-section {
         display: flex !important;
-        flex-direction: column !important; /* Forces: Plate -> Food -> Text -> API */
+        flex-direction: column !important; /* Stack: Food -> Title -> Recipe */
         align-items: center !important;
-        width: 100vw !important;
+        width: 95% !important;
+        margin: 40px auto !important;
+        padding: 20px !important;
+        background: rgba(0, 0, 0, 0.85) !important; /* Semi-transparent dark box */
+        border-radius: 20px !important;
         position: relative !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: hidden !important; /* Stops the 'Half White' screen */
         left: 0 !important;
         top: 0 !important;
         transform: none !important;
-    }
-
-    /* 2. THE METAL PLATE: Shrink it to fit the phone */
-    .metalplate-bg { 
-        display: block !important;
-        position: relative !important; /* Stops it from flying away */
-        width: 120% !important;        /* Big enough to look like a plate, small enough to fit */
         height: auto !important;
-        margin: 0 auto !important;
-        left: -10% !important;         /* Centers a 120% wide image */
-        top: 0 !important;
-        transform: none !important;
-        z-index: 1 !important;
     }
 
-    /* 3. THE FOOD: Force it onto the plate surface */
+    /* 2. REMOVE THE CLUTTER */
+    .metalplate-bg, .spoon-bg, .spoon-instructions img {
+        display: none !important;
+    }
+
+    /* 3. THE FOOD ITEM: Centered at the top */
     .food-item, .plate-food {
         display: block !important;
-        position: absolute !important; /* Absolute relative to the container */
-        width: 150px !important;       /* Scaled for mobile */
-        top: 80px !important;          /* Adjust this to drop food onto the plate */
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+        position: relative !important;
+        width: 180px !important; /* Nice size for phone */
+        height: auto !important;
+        margin: 0 auto 20px auto !important; /* Centered with space below */
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
         z-index: 5 !important;
     }
 
-    /* 4. THE SPOON & INSTRUCTIONS: Reset text positioning */
+    /* 4. THE TEXT (Spoon Instructions): Now just clean typography */
     .spoon-instructions {
         display: block !important;
         position: relative !important;
-        width: 90% !important;
-        margin: 20px auto !important;
+        width: 100% !important;
         text-align: center !important;
+        margin-bottom: 20px !important;
         top: 0 !important;
         left: 0 !important;
-        z-index: 10 !important;
-        background: rgba(0,0,0,0.6) !important; /* Dark tint so white text is readable */
-        padding: 15px !important;
-        border-radius: 10px !important;
     }
 
-    /* 5. THE API RECIPE: Fix the '10% visibility' */
-    #recipe-result, .recipe-api-results {
+    .spoon-instructions h2 { 
+        font-size: 1.6rem !important; 
+        color: #ffcc00 !important; /* Gold/Yellow for visibility */
+        margin-bottom: 10px !important;
+    }
+
+    .spoon-instructions p { 
+        font-size: 1.1rem !important; 
+        color: white !important;
+        line-height: 1.5 !important;
+    }
+
+    /* 5. THE API RECIPE: Full 100% visibility */
+    #recipe-result, .recipe-api-results, .recipe-display {
         display: block !important;
         position: relative !important;
-        width: 90% !important;
+        width: 100% !important;
         height: auto !important;
-        min-height: 200px !important;
-        margin: 20px auto !important;
-        background: #fff !important;   /* White background so you can see it */
-        color: #000 !important;        /* Black text */
-        padding: 15px !important;
-        z-index: 100 !important;       /* Highest layer */
+        min-height: 300px !important;
+        background: #fff !important;   /* White 'paper' look for the recipe */
+        color: #000 !important;        /* Black text for readability */
+        padding: 20px !important;
+        border-radius: 10px !important;
+        margin-top: 10px !important;
         left: 0 !important;
         top: 0 !important;
         transform: none !important;
-        overflow-y: visible !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
 }
     .contact-section {
         width: 90% !important; 
