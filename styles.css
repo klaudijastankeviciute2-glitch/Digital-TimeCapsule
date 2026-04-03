@@ -708,48 +708,32 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         border: 1px solid #555 !important;
         font-size: 0.8rem !important;
        } 
-    
-  Smart move. The plate and the spoon were using complex "layered" positioning that is a nightmare to manage on a 390px wide phone screen. By removing them, we can let the Recipe API and the Food breathe in a clean, vertical layout.
 
-Here is the "Clean Food" mobile code. This focuses entirely on making the food look good and the recipe readable.
-
-The "Clean Food & Recipe" Mobile Reset
-Replace your plate/spoon/recipe section in the @media query with this:
-
-CSS
-    /* 1. THE MAIN SECTION: A clean, dark container for the food info */
-    .plate-section, .recipe-container, .food-section {
-        display: flex !important;
-        flex-direction: column !important; /* Stack: Food -> Title -> Recipe */
-        align-items: center !important;
-        width: 95% !important;
-        margin: 40px auto !important;
-        padding: 20px !important;
-        background: rgba(0, 0, 0, 0.85) !important; /* Semi-transparent dark box */
-        border-radius: 20px !important;
-        position: relative !important;
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
+.food-item, .plate-food, [class*="food"] { 
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: relative !important; /* Disconnects it from the missing plate */
+        width: 200px !important;       /* Give it a clear size */
         height: auto !important;
+        margin: 20px auto !important;  /* Centers it and adds breathing room */
+        top: 0 !important;             /* Resets desktop "flying" coordinates */
+        left: 0 !important;
+        transform: none !important;
+        z-index: 100 !important;       /* Put it on top of the background */
     }
+
+    /* 2. THE CONTAINER: Ensure it allows the food to show */
+    .plate-section, .recipe-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        min-height: 200px !important; /* Ensures the box doesn't collapse */
+        overflow: visible !important;  /* Allows the food to "pop" out if needed */
 
     /* 2. REMOVE THE CLUTTER */
     .metalplate-bg, .spoon-bg, .spoon-instructions img {
         display: none !important;
-    }
-
-    /* 3. THE FOOD ITEM: Centered at the top */
-    .food-item, .plate-food {
-        display: block !important;
-        position: relative !important;
-        width: 180px !important; /* Nice size for phone */
-        height: auto !important;
-        margin: 0 auto 20px auto !important; /* Centered with space below */
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        z-index: 5 !important;
     }
 
     /* 4. THE TEXT (Spoon Instructions): Now just clean typography */
