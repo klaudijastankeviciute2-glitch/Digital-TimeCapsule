@@ -659,74 +659,68 @@ html, body {
         position: relative !important;
     }
 
-    /* 2. THE CONTAINER: Simple centered box */
-   .pod-container, .music-container {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 95% !important;
-        max-width: 400px !important;
-        margin: 20px auto !important;
+ .pod-container, .music-container {
+        display: block !important;
         position: relative !important;
-        left: auto !important;   /* Kills the 'to the side' desktop positioning */
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        background: #111 !important; /* Gives the player a subtle dark background */
+        width: 90% !important;
+        max-width: 360px !important;
+        margin: 30px auto !important; /* Centers it on the page */
         padding: 15px !important;
+        background: #111 !important; /* The dark 'case' */
         border-radius: 20px !important;
+        transform: none !important;
+        left: auto !important;   /* Resets desktop 'left' */
+        top: auto !important;    /* Resets desktop 'top' */
+        height: auto !important;
     }
 
-    /* 2. THE POD IMAGE: Absolute Death */
+    /* 2. HIDE THE POD IMAGE */
     .pod-bg {
         display: none !important;
-        visibility: hidden !important;
-        position: absolute !important;
-        width: 0 !important;
-        height: 0 !important;
     }
 
-    /* 3. THE PLAYER SCREEN (The Playlist) */
+    /* 3. THE PLAYER SCREEN (Playlist) */
     .player-screen {
         display: block !important;
         position: relative !important; 
         width: 100% !important;
-        height: 350px !important; /* Fixed height for the playlist */
-        background: #000 !important;
+        height: 300px !important; 
+        background: #000 !important; /* Black background */
         border-radius: 10px !important;
-        margin-bottom: 20px !important;
-        top: auto !important;
+        margin-bottom: 20px !important; /* Creates a gap for buttons */
         left: auto !important;
+        top: auto !important;
+        transform: none !important;
         overflow-y: auto !important;
-        z-index: 10 !important;
+        z-index: 5 !important;
     }
 
-    /* 4. THE BUTTONS: Forced to the front */
+    /* 4. THE BUTTONS: Forced to appear below the screen */
     .controls {
         display: flex !important;
-        position: relative !important;
+        position: relative !important; 
         width: 100% !important;
         justify-content: center !important;
-        gap: 12px !important;
-        margin: 0 auto !important;
-        top: auto !important;
+        gap: 10px !important;
         left: auto !important;
-        z-index: 999 !important; /* Put them on top of EVERYTHING */
+        top: auto !important;
+        transform: none !important;
+        z-index: 10 !important;
         visibility: visible !important;
     }
 
     .controls button {
         display: inline-block !important;
-        width: 60px !important;
-        height: 50px !important;
-        background: #333 !important; /* Dark grey buttons */
-        color: white !important;      /* White text/icons */
+        width: 55px !important;
+        height: 45px !important;
+        background: #333 !important; /* Grey buttons so they show up */
+        color: white !important;
         border: 1px solid #555 !important;
-        border-radius: 8px !important;
-        cursor: pointer !important;
-        opacity: 1 !important;
+        border-radius: 5px !important;
         visibility: visible !important;
+        opacity: 1 !important;
     }
+    
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
     
