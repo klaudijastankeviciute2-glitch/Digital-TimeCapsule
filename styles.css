@@ -603,11 +603,13 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 /* Mobile */
 
 @media screen and (max-width: 768px) {
+    background: red !important; 
     body { 
     padding: 10px; 
     box-sizing: border-box; 
 }
 
+    
     .home-logo, .side-logo {
         left: 20px;
         top: 10%;
