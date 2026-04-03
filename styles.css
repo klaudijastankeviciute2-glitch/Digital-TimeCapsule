@@ -711,38 +711,31 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
 .spoon-instructions {
         display: block !important;
-        /* CHANGE: Increase width so the 'box' isn't tiny */
-        width: 90% !important; 
-        text-align: center !important;
-        margin: 20px auto !important; /* Centering the 90% box */
+        width: 90% !important; /* From your previous layout */
+        margin: 20px auto !important;
+        position: relative !important;
+        
+        /* THE MAGIC BIT: This makes the container untouchable */
+        pointer-events: none !important; 
+        z-index: 5 !important;
     }
 
-    .spoon-instructions h2 { 
-        color: #000000 !important; 
-        /* CHANGE: Slightly smaller font size for mobile screens */
-        font-size: 1.4rem !important; 
-        margin: 10px 0 !important;
-        line-height: 1.2 !important;
-        z-index: -1;
+    /* 2. THE SPECIFIC TEXT: Bring back touch for just the words */
+    .spoon-instructions h2, 
+    .spoon-instructions p {
+        pointer-events: auto !important; /* You can still highlight text if needed */
     }
 
-    .spoon-instructions p { 
-        color: #333333 !important; 
-        /* CHANGE: Increase width to 100% of the parent (90%) */
-        width: 100% !important; 
-        /* CHANGE: Smaller font size so it looks like a normal paragraph */
-        font-size: 1rem !important; 
-        margin: 0 auto !important;
-        line-height: 1.4 !important;
-        z-index: -1;
+    /* 3. THE FOOD: Put it at the front of the line */
+    .food-item, .plate-food, [class*="food"] { 
+        display: block !important;
+        position: relative !important;
+        z-index: 9999 !important; /* Higher than the text container */
+        
+        /* THE MAGIC BIT: Force it to be tappable */
+        pointer-events: auto !important; 
+        cursor: pointer !important;
     }
-    
-    /* Keeping your plate logic exactly as you had it */
-    .metalplate-bg { 
-        width: 180% !important; 
-        right: -40% !important; 
-    }
-
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
