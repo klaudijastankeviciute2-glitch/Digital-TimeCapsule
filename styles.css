@@ -709,61 +709,10 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.plate-section, .food-section, .recipe-container {
-        display: block !important;    /* Kill Flexbox */
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        text-align: center !important; /* This centers 'inline-block' items */
-        position: relative !important;
-        left: 0 !important;
-    }
-
-    /* 2. THE FOOD: The 'Old School' Center */
-    .food-item, .plate-food, [class*="food"] { 
-        display: inline-block !important; /* Works with text-align: center */
-        visibility: visible !important;
-        position: relative !important;   /* UNPINS it from desktop absolute coords */
-        
-        /* RESET ALL DESKTOP PUSHES */
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        transform: none !important;
-        float: none !important;
-
-        /* SIZE & MARGIN */
-        width: 280px !important; 
-        height: auto !important;
-        margin: 20px auto !important; 
-        
-        z-index: 999 !important;
-    }
-
-    /* 3. THE TEXT: Stacked underneath */
-    .spoon-instructions {
-        display: block !important;
-        width: 100% !important;
-        text-align: center !important;
-        margin-top: 20px !important;
-    }
-
-    .spoon-instructions h2 { 
-        color: #000000 !important; /* Black Title */
-        font-size: 1.8rem !important;
-        margin: 10px 0 !important;
-    }
-
-    .spoon-instructions p { 
-        color: #333333 !important; /* Dark Grey Paragraph */
-        width: 90% !important;
-        margin: 0 auto !important;
-    }
-
-    /* 4. THE HIDE LIST */
-    .metalplate-bg, .spoon-bg, .spoon-instructions img, #recipe-result, [class*="recipe"] {
-        display: none !important;
-    }
+   .spoon-instructions h2 { font-size: 1.8rem !important; }
+    .spoon-instructions p { font-size: 1.2rem !important; }
+    
+    .metalplate-bg { width: 180% !important; right: -40% !important; }
 
     .contact-section {
         width: 90% !important; 
