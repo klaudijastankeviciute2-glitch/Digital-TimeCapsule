@@ -655,46 +655,64 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         z-index: 4;
     }
 
-    /* 2. THE PLAYER SCREEN: Positioned inside the Big Pod */
+  .pod-container, .music-container {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        margin: 20px auto !important;
+        
+        /* THE 'INVISIBILITY' TRICK */
+        background: transparent !important; /* Removes the dark body */
+        border: none !important;            /* Removes the border */
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;       /* Critical so internal parts show */
+        
+        /* CLEANUP */
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+    }
+
+    /* 2. THE PLAYER SCREEN: Stays visible */
     .player-screen {
         display: block !important;
-        position: absolute !important; 
-        width: 85% !important;  /* Fits inside the pod edges */
-        height: 280px !important;
-        top: 40px !important;   /* Pushes it down from the top of the pod */
-        left: 50% !important;
-        transform: translateX(-50%) !important; /* Centers it perfectly */
+        position: relative !important; /* Changed to relative to stack naturally */
+        width: 90% !important;
+        height: 250px !important;
+        margin: 0 auto 20px auto !important;
         background: #000 !important;
         border-radius: 15px !important;
         z-index: 10 !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
     }
 
-    /* 3. THE BUTTONS: Positioned at the bottom of the Big Pod */
+    /* 3. THE BUTTONS: Stay visible under the screen */
     .controls {
         display: flex !important;
-        position: absolute !important;
-        bottom: 40px !important; /* Sits 40px from the bottom of the pod */
-        left: 50% !important;
-        transform: translateX(-50%) !important; /* Centers it perfectly */
-        width: 85% !important;
+        position: relative !important;
+        width: 100% !important;
         justify-content: center !important;
         gap: 15px !important;
+        margin: 0 auto !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        transform: none !important;
         z-index: 20 !important;
     }
 
     .controls button {
-        width: 65px !important;
-        height: 55px !important;
+        width: 60px !important;
+        height: 60px !important;
         background: #333 !important;
         color: white !important;
-        border-radius: 50% !important; /* Makes them circular like an iPod */
+        border-radius: 50% !important;
         border: 1px solid #555 !important;
-        font-size: 0.8rem !important;
-       } 
-
-    .pod-container, .music-container {
-    display: none !important; /* This stops it from showing up entirely */
-}
+    }
    /* 1. THE LAYOUT: Stack them so they don't overlap */
     .plate-section, .recipe-container {
         display: flex !important;
