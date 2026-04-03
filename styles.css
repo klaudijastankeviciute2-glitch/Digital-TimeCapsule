@@ -709,73 +709,79 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.food-item, .plate-food, [class*="food"] { 
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important; /* Disconnects it from the missing plate */
-        width: 200px !important;       /* Give it a clear size */
-        height: auto !important;
-        margin: 20px auto !important;  /* Centers it and adds breathing room */
-        top: 0 !important;             /* Resets desktop "flying" coordinates */
-        left: 0 !important;
-        transform: none !important;
-        z-index: 100 !important;       /* Put it on top of the background */
-    }
-
-    /* 2. THE CONTAINER: Ensure it allows the food to show */
-    .plate-section, .recipe-container {
+.plate-section, .recipe-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        min-height: 200px !important; /* Ensures the box doesn't collapse */
-        overflow: visible !important;  /* Allows the food to "pop" out if needed */
+        width: 95% !important;
+        margin: 20px auto !important;
+        background: #111 !important; /* Solid dark background */
+        padding: 20px !important;
+        border-radius: 20px !important;
+        min-height: 400px !important;
+        height: auto !important;
+        overflow: visible !important;
+    } /* Added the missing bracket here! */
 
-    /* 2. REMOVE THE CLUTTER */
-    .metalplate-bg, .spoon-bg, .spoon-instructions img {
-        display: none !important;
-    }
-
-    /* 4. THE TEXT (Spoon Instructions): Now just clean typography */
-    .spoon-instructions {
+    /* 2. THE FOOD: Bigger and Centered */
+    .food-item, .plate-food, [class*="food"] { 
         display: block !important;
+        visibility: visible !important;
         position: relative !important;
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
+        width: 280px !important; /* Increased from 200px */
+        height: auto !important;
+        margin: 10px auto 20px auto !important;
+        z-index: 100 !important;
+        transform: none !important;
         top: 0 !important;
         left: 0 !important;
     }
 
+    /* 3. THE TEXT (Spoon Instructions) */
+    .spoon-instructions {
+        width: 100% !important;
+        text-align: center !important;
+        margin-bottom: 20px !important;
+    }
+
     .spoon-instructions h2 { 
-        font-size: 1.6rem !important; 
-        color: #ffcc00 !important; /* Gold/Yellow for visibility */
+        font-size: 1.8rem !important; 
+        color: #ffffff !important; /* Changed from yellow to white for better look on dark */
         margin-bottom: 10px !important;
     }
 
     .spoon-instructions p { 
-        font-size: 1.1rem !important; 
-        color: white !important;
-        line-height: 1.5 !important;
+        font-size: 1.2rem !important; 
+        color: #cccccc !important; /* Light grey so you can see it */
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    /* 5. THE API RECIPE: Full 100% visibility */
-    #recipe-result, .recipe-api-results, .recipe-display {
+    /* 4. THE API RECIPE: Forced Visibility */
+    /* Check your HTML: if it's an ID, use #recipe-result. If it's a class, use .recipe-result */
+    #recipe-result, .recipe-api-results, .recipe-display, #recipe-container {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         position: relative !important;
         width: 100% !important;
-        height: auto !important;
-        min-height: 300px !important;
-        background: #fff !important;   /* White 'paper' look for the recipe */
-        color: #000 !important;        /* Black text for readability */
+        min-height: 300px !important; /* Ensures it has a 'shape' even if empty */
+        background: #ffffff !important; /* White card */
+        color: #000000 !important;    /* Black text */
         padding: 20px !important;
         border-radius: 10px !important;
-        margin-top: 10px !important;
-        left: 0 !important;
+        margin-top: 20px !important;
+        z-index: 999 !important;
         top: 0 !important;
+        left: 0 !important;
         transform: none !important;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
-}
+    }
+
+    /* 5. REMOVE CLUTTER */
+    .metalplate-bg, .spoon-bg, .spoon-instructions img {
+        display: none !important;
+    }
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
