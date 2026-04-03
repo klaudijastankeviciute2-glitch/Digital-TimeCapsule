@@ -689,5 +689,12 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     .modal-bg-image {
         width: 150% !important;
         top: 0 !important;
+        
+ .contact-section {
+        width: 90% !important; 
+        margin: 20px auto;
+        font-size: 1rem !important;
+    }
+        
     } 
 }
