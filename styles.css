@@ -682,17 +682,48 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         display: none !important;
          }
     
-#modalTitle {
-        font-size: 1.8rem !important;
+.modal-content.layered-modal {
+        width: 95% !important;      /* Shrink from 800px */
+        height: auto !important;
+        min-height: 400px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .modal-bg-image {
+        width: 100% !important;     /* Fits the frame */
+        top: 0 !important;
+        height: auto !important;
+    }
+
+    .nested-image {
+        width: 60% !important;      /* Shrink the middle image */
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 20px auto !important;
+    }
+
+    .side-text-container {
+        position: relative !important;
+        width: 100% !important;
+        bottom: auto !important;
+        padding: 10px !important;
+    }
+
+    /* THE FONT SHRINK */
+    #modalTitle {
+        font-size: 1.8rem !important; /* Half the desktop size */
         letter-spacing: 1px !important;
         margin-bottom: 5px !important;
     }
 
     #modalDescription {
-        font-size: 1rem !important;  
+        font-size: 1rem !important;   /* Makes the paragraphs smaller */
         line-height: 1.3 !important;
         max-width: 95% !important;
     }
         
-    }
 }
