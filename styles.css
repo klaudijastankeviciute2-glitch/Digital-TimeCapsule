@@ -722,49 +722,50 @@ Add this specific block to your @media query. It ensures the container expands t
 
 CSS
     /* 1. THE FOOD CONTAINER: Must be allowed to grow */
-    .recipe-container, .plate-section, #recipe-container {
+   .recipe-container, .plate-section, #recipe-container {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
+        align-items: flex-start !important; /* Align to the start (left) */
         
         width: 100% !important;
-        height: auto !important;          /* CRITICAL: Let it grow tall */
-        min-height: 1200px !important;     /* Enough space for all 7+ items */
+        height: auto !important;
+        min-height: 1200px !important;
         
-        overflow-y: visible !important;    /* Allows the phone to scroll */
-        overflow-x: hidden !important; 
+        /* CHANGE THIS: 'scroll' allows the finger slide */
+        overflow-y: visible !important;
+        overflow-x: scroll !important; 
+        -webkit-overflow-scrolling: touch; /* Makes the slide feel smooth */
+        
         padding-top: 60px !important;
-        padding-bottom: 100px !important;  /* Space at the very bottom */
+        padding-bottom: 100px !important;
         background: #ffffff !important;
     }
 
-    /* 2. THE FOOD ITEMS: Keeping them in a neat scrollable line */
+    /* 2. THE FOOD ITEMS: Keep them pinned to the left so the plate can be on the right */
     .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
         position: relative !important;
         display: block !important;
-        width: 260px !important;           /* Sized for mobile screens */
-        margin: 20px auto !important;      /* Vertical gap between foods */
-        
-        /* Resetting desktop 'flying' coordinates */
-        top: 0 !important;
+        width: 260px !important;
+        margin: 20px 0 20px 20px !important; /* Pushes food slightly from the left edge */
         left: 0 !important;
-        right: 0 !important;
         transform: none !important;
-        z-index: 10 !important;
     }
 
-    /* 3. THE PLATE/INSTRUCTIONS: At the very bottom of the scroll */
+    /* 3. THE PLATE: This is what you 'slide' to see */
     .spoon-instructions {
         position: relative !important;
-        width: 90% !important;
-        margin: 40px auto !important;
+        display: inline-block !important; /* Allows it to ignore the container width */
+        width: 350px !important;          /* Fixed width so it doesn't squish */
+        
+        /* PUSH IT TO THE RIGHT: This forces the 'slide' action */
+        margin-left: 50% !important;      
+        margin-top: 40px !important;
+        
         text-align: center !important;
         top: 0 !important;
         left: 0 !important;
         transform: none !important;
-    }
-    
+      }
     .contact-section {
         width: 90% !important; 
         margin: 40px auto !important;
