@@ -617,50 +617,25 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
 .composition-container {
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-        height: 200px !important; /* Shrunk from 500px to stop the floating */
+        display: flex !important;
+        flex-direction: column !important; /* Stack them like a ladder */
+        align-items: center !important;    /* Center them all */
+        height: auto !important;
+        transform: scale(0.8) !important;
         margin: 0 auto !important;
-        padding: 0 !important;
-        transform: scale(0.7) !important; /* Slightly bigger so you can see them */
-        transform-origin: center top !important;
-        overflow: visible !important;
     }
 
-    /* 2. THE EARPHONES: Pulled up into the bag area */
-    .earphones {
+    /* 2. THE ITEMS (Turtle, Bread, Earphones) */
+    /* This targets ALL images inside that container at once */
+    .composition-container img {
         display: block !important;
-        position: absolute !important;
-        width: 250px !important; 
-        left: 50% !important;
-        /* Negative 'top' physically yanks them UP into the bag */
-        top: -100px !important; 
-        transform: translateX(-50%) !important;
-        z-index: 5 !important;
+        position: relative !important; /* Forces them to stay in the 'ladder' */
+        width: 200px !important;       /* Makes them all a consistent size */
+        margin: 10px auto !important;  /* Space between them */
+        top: 0 !important;             /* Kills any desktop 'floating' */
+        left: 0 !important;
+        transform: none !important;
     }
-
-    /* 3. THE TURTLE: Sitting on/in the bag */
-    .turtle {
-        display: block !important;
-        position: absolute !important;
-        width: 180px !important;  
-        left: 50% !important;
-        top: -60px !important; /* Pulled up */
-        transform: translateX(-50%) !important;
-        z-index: 999 !important; 
-    }
-
-    /* 4. THE BREAD: Tucked in */
-    .bread {
-        display: block !important;
-        position: absolute !important;
-        width: 150px !important;
-        left: 50% !important;
-        top: -120px !important; /* Pulled up */
-        transform: translateX(-50%) rotate(-15deg) !important;
-        z-index: 4 !important;
-     }    
     
   .pod-container, .music-container {
         display: block !important;
