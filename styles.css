@@ -665,20 +665,35 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     .modal-content p { font-size: 1.2rem !important; }
 
     .pod-bg {
-        width: 100% !important; 
-        max-width: 320px;
+       width: 100% !important; 
+        max-width: 280px !important; 
+        margin: 0 auto !important;
+        display: block !important;
+        position: relative !important; 
+        height: auto !important;
+        z-index: 1;
     }
 
     .player-screen {
-        width: 70% !important;
-        top: 48% !important;
+      position: absolute !important;
+        width: 82% !important; 
+        height: 38% !important; 
+        top: 6% !important;      
         left: 50% !important;
-        transform: translate(-50%, -100%) !important;
+        transform: translateX(-50%) !important; 
+        z-index: 10 !important;
     }
 
     .controls {
-        gap: 20px !important; 
-        transform: translateY(20px) !important;
+       position: absolute !important;
+        width: 70% !important;
+        bottom: 12% !important;  
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        justify-content: center !important;
+        gap: 8px !important;
+        z-index: 20 !important;
     }
 
     .controls button {
