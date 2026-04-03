@@ -660,53 +660,72 @@ html, body {
     }
 
     /* 2. THE CONTAINER: Simple centered box */
-    .pod-container, .music-container {
-        display: block !important;
-        position: relative !important;
-        width: 90% !important; 
+   .pod-container, .music-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 95% !important;
         max-width: 400px !important;
-        height: auto !important;
         margin: 20px auto !important;
-        padding: 10px !important;
-        transform: none !important; /* Vital to stop desktop zooming */
+        position: relative !important;
+        left: auto !important;   /* Kills the 'to the side' desktop positioning */
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        background: #111 !important; /* Gives the player a subtle dark background */
+        padding: 15px !important;
+        border-radius: 20px !important;
     }
 
-    /* --- SECTION 3 DELETED (The Pod Image code is gone) --- */
+    /* 2. THE POD IMAGE: Absolute Death */
+    .pod-bg {
+        display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        width: 0 !important;
+        height: 0 !important;
+    }
 
-    /* 4. THE PLAYER SCREEN: Stacks naturally */
+    /* 3. THE PLAYER SCREEN (The Playlist) */
     .player-screen {
         display: block !important;
         position: relative !important; 
         width: 100% !important;
-        height: auto !important;
-        min-height: 300px !important;
-        background: #000 !important; 
-        border-radius: 15px !important;
+        height: 350px !important; /* Fixed height for the playlist */
+        background: #000 !important;
+        border-radius: 10px !important;
         margin-bottom: 20px !important;
-        overflow-y: auto !important; 
+        top: auto !important;
+        left: auto !important;
+        overflow-y: auto !important;
+        z-index: 10 !important;
     }
 
-    /* 5. THE BUTTONS: Sits below the screen */
-   .controls {
+    /* 4. THE BUTTONS: Forced to the front */
+    .controls {
         display: flex !important;
-        position: relative !important; 
+        position: relative !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 15px !important;
-        margin-top: 20px !important; /* Adds space so they don't overlap the screen */
-        z-index: 9999 !important;    /* Forces them to the very top layer */
+        gap: 12px !important;
+        margin: 0 auto !important;
+        top: auto !important;
+        left: auto !important;
+        z-index: 999 !important; /* Put them on top of EVERYTHING */
+        visibility: visible !important;
     }
 
     .controls button {
-        display: inline-block !important; /* Ensures they aren't hidden */
+        display: inline-block !important;
         width: 60px !important;
-        height: 45px !important;
-        background-color: #444 !important; /* Dark grey so you can see them */
-        color: white !important;           /* White text/icons */
-        font-size: 0.8rem !important;
-        border: 1px solid #666 !important;
-        visibility: visible !important;    /* Overrides any accidental hiding */
+        height: 50px !important;
+        background: #333 !important; /* Dark grey buttons */
+        color: white !important;      /* White text/icons */
+        border: 1px solid #555 !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
         opacity: 1 !important;
+        visibility: visible !important;
     }
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
