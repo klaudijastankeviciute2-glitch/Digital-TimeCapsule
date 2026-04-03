@@ -709,32 +709,48 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.spoon-instructions {
+.food-item, .plate-food, [class*="food"] { 
         display: block !important;
-        width: 90% !important; /* From your previous layout */
+        visibility: visible !important;
+        position: relative !important;
+        
+        /* THE LAYER FIX */
+        z-index: 99999 !important; /* Higher than any other element */
+        pointer-events: auto !important; /* Forces it to be touchable */
+        cursor: pointer !important;
+        
+        /* YOUR LAYOUT */
+        width: 280px !important;
+        margin: 0 auto !important;
+        transform: none !important;
+    }
+
+    /* 2. THE TEXT: Push it back in the 3D stack */
+    .spoon-instructions {
+        display: block !important;
+        width: 50% !important; /* Keeping your 50% */
         margin: 20px auto !important;
         position: relative !important;
         
-        /* THE MAGIC BIT: This makes the container untouchable */
-        pointer-events: none !important; 
-        z-index: 5 !important;
+        /* THE LAYER FIX */
+        z-index: 1 !important; /* Moves it behind the food layer */
+        pointer-events: none !important; /* Clicks pass through the gaps */
     }
 
-    /* 2. THE SPECIFIC TEXT: Bring back touch for just the words */
+    /* 3. THE ACTUAL WORDS: Make them touchable but stay back */
     .spoon-instructions h2, 
     .spoon-instructions p {
-        pointer-events: auto !important; /* You can still highlight text if needed */
+        position: relative !important;
+        z-index: 1 !important;
+        pointer-events: auto !important;
     }
 
-    /* 3. THE FOOD: Put it at the front of the line */
-    .food-item, .plate-food, [class*="food"] { 
-        display: block !important;
-        position: relative !important;
-        z-index: 9999 !important; /* Higher than the text container */
-        
-        /* THE MAGIC BIT: Force it to be tappable */
-        pointer-events: auto !important; 
-        cursor: pointer !important;
+    /* 4. THE PLATE: Ensure it isn't blocking the food */
+    .metalplate-bg { 
+        width: 180% !important; 
+        right: -40% !important; 
+        z-index: 0 !important; /* Must be the lowest layer */
+        pointer-events: none !important; 
     }
     .contact-section {
         width: 90% !important; 
