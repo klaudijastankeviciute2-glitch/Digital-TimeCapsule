@@ -682,49 +682,58 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         display: none !important;
          }
     
-  .modal-content.layered-modal {
+    .modal-content.layered-modal {
         position: relative !important;
-        width: 90vw !important;      
-        max-width: 350px !important;
-        height: auto !important;
-        /* THE CENTERING TRICK */
-        margin: 20px auto !important; 
+        width: 320px !important;       /* Smaller fixed width for mobile */
+        height: 320px !important;      /* Square shape to keep layers aligned */
+        margin: 20px auto !important;
         left: 0 !important;
         right: 0 !important;
         transform: none !important;
-        
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
+        display: block !important;     /* Kill Flexbox so things can overlap */
     }
 
-    /* 2. THE TEXT CONTAINER: Center the paragraphs */
-    .side-text-container {
-        position: relative !important;
-        width: 100% !important;
+    /* 2. THE BACKGROUND (STAR/IMAGE): The bottom layer */
+    .modal-bg-image {
+        position: absolute !important;
+        top: 0 !important;
         left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        margin: 10px auto !important;
-        transform: none !important;
-        text-align: center !important; /* Centers the actual text lines */
+        width: 100% !important;        /* Fill the 320px box */
+        height: auto !important;
+        z-index: 1 !important;
+    }
+
+    /* 3. THE NESTED PICTURE: The middle layer */
+    .nested-image {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important; /* Perfect center */
+        width: 40% !important;         /* Smaller middle image */
+        z-index: 2 !important;
+    }
+
+    /* 4. THE TEXT: The top layer */
+    .side-text-container {
+        position: absolute !important;
+        top: 60% !important;           /* Lower half of the star */
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 80% !important;
+        text-align: center !important;
+        z-index: 10 !important;        /* On very top */
+    }
+
+    #modalTitle {
+        font-size: 18px !important;    /* Small Title */
+        color: #ffffff !important;
+        margin: 0 !important;
     }
 
     #modalDescription {
-        font-size: 14px !important;   
-        line-height: 1.4 !important;
-        width: 95% !important;
-        margin: 0 auto !important;
-        display: block !important;
-    }
-
-    .modal-bg-image, .nested-image {
-        position: relative !important;
-        left: 0 !important;
-        right: 0 !important;
-        transform: none !important;
-        margin: 0 auto !important;
-    }
-        
+        font-size: 11px !important;    /* TINY Paragraphs to fit inside the star */
+        line-height: 1.2 !important;
+        color: #ffffff !important;
+        width: 100% !important;
+    } 
 }
