@@ -663,62 +663,60 @@ html, body {
         display: block !important;
         position: relative !important;
         width: 90% !important;
-        max-width: 360px !important;
-        margin: 30px auto !important; /* Centers it on the page */
-        padding: 15px !important;
-        background: #111 !important; /* The dark 'case' */
+        max-width: 350px !important;
+        margin: 40px auto !important; /* The 'auto' centers it horizontally */
+        padding: 20px !important;
+        background: #111 !important; /* Dark 'case' */
         border-radius: 20px !important;
+        /* THE RESET: Kills the desktop 'Top/Left' coordinates */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
         transform: none !important;
-        left: auto !important;   /* Resets desktop 'left' */
-        top: auto !important;    /* Resets desktop 'top' */
-        height: auto !important;
+        float: none !important;
     }
 
-    /* 2. HIDE THE POD IMAGE */
-    .pod-bg {
-        display: none !important;
-    }
-
-    /* 3. THE PLAYER SCREEN (Playlist) */
+    /* 2. THE PLAYER SCREEN: Your Playlist */
     .player-screen {
         display: block !important;
-        position: relative !important; 
+        position: relative !important;
         width: 100% !important;
-        height: 300px !important; 
-        background: #000 !important; /* Black background */
+        height: 300px !important; /* Fixed height for the playlist */
+        background: #000 !important;
         border-radius: 10px !important;
-        margin-bottom: 20px !important; /* Creates a gap for buttons */
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
+        margin-bottom: 25px !important; /* Space for the buttons below */
         overflow-y: auto !important;
         z-index: 5 !important;
+        top: 0 !important;
+        left: 0 !important;
     }
 
-    /* 4. THE BUTTONS: Forced to appear below the screen */
+    /* 3. THE BUTTONS: Forced to appear and stack */
     .controls {
         display: flex !important;
-        position: relative !important; 
+        flex-direction: row !important; /* Side-by-side buttons */
+        position: relative !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 10px !important;
-        left: auto !important;
-        top: auto !important;
-        transform: none !important;
-        z-index: 10 !important;
-        visibility: visible !important;
+        gap: 15px !important;
+        z-index: 999 !important; /* Keep them on top */
+        top: 0 !important;
+        left: 0 !important;
+        min-height: 50px !important;
+        /* DEBUG: Remove this red line once you see the buttons */
+        border: 2px solid red !important; 
     }
 
     .controls button {
         display: inline-block !important;
-        width: 55px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 60px !important;
         height: 45px !important;
-        background: #333 !important; /* Grey buttons so they show up */
+        background: #333 !important; /* Grey so they are visible on black */
         color: white !important;
         border: 1px solid #555 !important;
         border-radius: 5px !important;
-        visibility: visible !important;
-        opacity: 1 !important;
     }
     
     .spoon-instructions h2 { font-size: 1.8rem !important; }
