@@ -602,60 +602,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
 /* Mobile */
 @media screen and (max-width: 768px) {
-    /* 1. GLOBAL RESET */
-    html, body { 
-        background: #ffffff !important; 
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    
-    .home-logo, .side-logo {
-        left: 20px !important;
-        top: 5% !important;
-        width: 100px !important; 
-        position: fixed !important;
-        z-index: 10000 !important;
-    }
-
-    /* 2. THE HOME PAGE: BAG & COMPOSITION */
-    .composition-container {
-        display: block !important; 
-        position: relative !important;
-        width: 100% !important;
-        height: 380px !important; /* Enough height for the bag + items */
-        margin: 40px auto !important;
-        transform: scale(0.85) !important;
-        transform-origin: center top !important;
-        overflow: visible !important;
-    }
-
-    .bag-image, [class*="bag"], img[src*="bag"] {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important; 
-        z-index: 1 !important;
-    }
-
-    /* Items pinned INSIDE the bag */
-    .turtle, .bread, .earphones, [class*="turtle"], [class*="bread"], [class*="earphones"] {
-        display: block !important;
-        position: absolute !important; 
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        z-index: 10 !important;
-    }
-
-    .earphones { width: 220px !important; top: 40px !important; }
-    .turtle { width: 170px !important; top: 90px !important; }
-    .bread { 
-        width: 140px !important; 
-        top: 30px !important; 
-        transform: translateX(-50%) rotate(-15deg) !important; 
-    }
-    
-@media screen and (max-width: 768px) {
     /* 1. GLOBAL OVERRIDES */
     html, body { 
         background: #ffffff !important; 
@@ -711,88 +657,69 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         width: 50px !important;
         height: 50px !important;
         margin: 0 !important;
-      }
-    
-.recipe-container, .plate-section, #recipe-container {
-
-        display: flex !important;
-
-        flex-direction: column !important;
-
-        align-items: center !important;    /* FORCES HORIZONTAL CENTERING */
-
-        justify-content: flex-start !important;
-
-        width: 100% !important;
-
-        height: auto !important; min-height: 100vh !important;
-
-        overflow-x: hidden !important;     /* Kills the side-slide */
-
-        overflow-y: auto !important;       /* Allows normal scrolling */
-
-        padding: 60px 0 !important;
-
-        background: #ffffff !important; 
-} 
-  
-    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese { position: relative !important;   display: block !important;
-
-        width: 280px !important;           /* Consistent size */
-
-        margin: 20px auto !important;      /* Centers the image */
-
-        top: 0 !important;
-
-        left: 0 !important;
-
-        right: 0 !important;
-
-        transform: none !important;
-
-        z-index: 10 !important;
-
-    }  
-
-    .spoon-instructions {  position: relative !important;
-
-        display: block !important;
-
-        width: 90% !important;
-
-        margin: 40px auto !important;      /* Centers the text block */
-
-        text-align: center !important;     /* Centers text inside */
-
-        top: 0 !important;
-
-        left: 0 !important;
-
-        right: 0 !important;
-
-        transform: none !important;
-
- }
-    .spoon-instructions h2 { font-size: 2.2rem !important; margin: 0 auto !important; }
-
-    .spoon-instructions p { font-size: 1.4rem !important; margin: 0 auto !important; }
-
-
-    .metalplate-bg, .spoon-bg, .flower-bg, .flower2-bg {
-
-        display: none !important;
     }
 
+    /* 3. THE FOOD TAB - FIXING THE 'PILE UP' */
+    .recipe-container, .plate-section {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding-top: 50px !important;
+    }
 
-    
-    .contact-section {
-        width: 90% !important; 
-        margin: 40px auto !important;
+    /* Target all food items to stop them from flying to 'right: 100%' */
+    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
+        position: relative !important; /* Stop the absolute overlap */
+        width: 250px !important;       /* Smaller food images */
+        height: auto !important;
+        top: 0 !important;             /* Reset all desktop positions */
+        right: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        transform: none !important;
+        margin: 15px auto !important;
+        display: block !important;
+    }
+
+    /* The Text Box underneath the food */
+    .spoon-instructions {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        transform: none !important;
+        width: 90% !important;
+        margin: 20px auto !important;
         text-align: center !important;
     }
 
-    .modal-bg-image {
-        width: 150% !important;
-        top: 0 !important;
+    .spoon-instructions h2 { font-size: 2rem !important; }
+    .spoon-instructions p { font-size: 1.5rem !important; }
+
+    /* 4. THE HOME TAB - BAG STACKING */
+    .composition-container {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        height: 350px !important;
+        margin: 0 auto !important;
+    }
+
+    .bag-image { width: 100% !important; position: relative !important; }
+
+    .turtle, .bread, .earphones {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    .turtle { top: 80px !important; width: 140px !important; }
+    .bread { top: 30px !important; width: 120px !important; }
+    .earphones { top: 50px !important; width: 180px !important; }
+
+    /* 5. HIDE THE CLUTTER */
+    .ipodbg-bg, .buds-bg, .butterfly-bg, .butterfly2-bg, 
+    .butterfly3-bg, .butterfly4-bg, .microphones-bg,
+    .metalplate-bg, .spoon-bg, .flower-bg, .flower2-bg,
+    .venus-bg, .venus2-bg, .stick-bg, .stick2-bg {
+        display: none !important;
     }
 }
