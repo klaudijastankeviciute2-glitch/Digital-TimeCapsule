@@ -663,52 +663,50 @@ CSS
         transform: translateX(-50%) rotate(-15deg) !important; 
     }
     
-  .pod-container, .music-container {
+ .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         width: 100% !important;
-        height: auto !important;         /* Let it be as tall as the content */
-        min-height: 500px !important;     /* Ensures there is enough room */
-        margin: 60px auto !important;     /* Space from the top logo */
-        padding: 20px 0 !important;
-        overflow: visible !important;     /* IMPORTANT: Stops the cut-off */
+        height: auto !important;          /* Let it grow with the content */
+        margin: 0 auto !important;
+        padding-top: 100px !important;    /* Pushes it below your logo */
+        transform: scale(0.8) !important;  /* SHRINKS the whole unit */
+        transform-origin: center top !important;
+        overflow: visible !important;      /* Stops the 'Cut Off' */
         background: transparent !important;
         border: none !important;
-        transform: scale(0.9) !important; /* Shrink slightly if it's too wide */
     }
 
-    /* 2. THE PLAYER SCREEN: Make sure it's not too tall */
+    /* 2. THE SCREEN: Shorter height to prevent cut-off */
     .player-screen {
         display: block !important;
         position: relative !important;
-        width: 90% !important;            /* Responsive width */
-        max-width: 320px !important;
-        height: 220px !important;         /* Fixed height for the screen area */
-        margin: 0 auto 30px auto !important; 
+        width: 280px !important;           /* Slimmer width */
+        height: 180px !important;          /* SHORTER HEIGHT */
+        margin: 0 auto 20px auto !important; 
         background: #000 !important;
-        border-radius: 15px !important;
+        border-radius: 12px !important;
+        z-index: 10 !important;
         top: 0 !important;
         left: 0 !important;
-        z-index: 10 !important;
     }
 
-    /* 3. THE BUTTONS: Space them out */
+    /* 3. THE CONTROLS: Tucked right under the screen */
     .controls {
         display: flex !important;
         position: relative !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 15px !important;
+        gap: 12px !important;
         margin: 0 auto !important;
-        padding-bottom: 40px !important;  /* Extra room at the bottom */
-        top: 0 !important;
+        padding-bottom: 60px !important;   /* Buffer at the very bottom */
         z-index: 20 !important;
     }
 
     .controls button {
-        width: 60px !important;
-        height: 60px !important;
+        width: 55px !important;            /* Slightly smaller buttons */
+        height: 55px !important;
         background: #333 !important;
         border-radius: 50% !important;
         flex-shrink: 0 !important;
