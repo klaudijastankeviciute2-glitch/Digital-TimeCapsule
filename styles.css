@@ -709,37 +709,50 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.food-item, 
-    .plate-food, 
-    [class*="kimchi"], 
-    [class*="pickle"], 
-    [class*="cheese"], 
-    [id*="food"] { 
-        position: relative !important;
-        z-index: 999999 !important; /* THE NUCLEAR OPTION */
-        pointer-events: auto !important; /* MUST BE AUTO TO BE TAPPABLE */
-        cursor: pointer !important;
-    }
+I hear you—if the "invisible box" around the instructions is so huge that it's acting like a shield over your kimchi and goat cheese, we need to shrink the footprint of that container.
 
-    /* 2. THE TEXT CONTAINER: Move it to the back */
+The reason it's "too damn big" is likely the width: 50% and width: 40% you're using. On mobile, a 40% width forces the text to wrap into a very tall, skinny skyscraper that covers the middle of your screen from top to bottom.
+
+Let's "attack" the instructions by shrinking their height, killing their padding, and forcing them to stay away from the food's touch zone.
+
+The "Shrink the Shield" Attack
+Replace your .spoon-instructions blocks with this "low-profile" version:
+
+CSS
+    /* 1. THE INSTRUCTIONS CONTAINER: Shrink it so it doesn't overlap */
     .spoon-instructions {
+        display: block !important;
+        /* Width: 90% lets the text spread out so the box isn't so TALL */
+        width: 95% !important; 
+        max-width: 100% !important;
+        margin: 10px auto !important; /* Small top margin to stay away from food */
+        padding: 0 !important;       /* Kill extra padding that creates 'dead space' */
+        
+        /* THE CRITICAL FIXES */
         position: relative !important;
-        z-index: 1 !important; /* Pushes the 'box' behind the food */
-        pointer-events: none !important; /* Clicks go THROUGH the empty space */
+        height: auto !important;     /* Only as tall as the words themselves */
+        pointer-events: none !important; /* Makes the BOX 'ghost-like' */
+        z-index: 1 !important;        /* Moves it behind the food layer */
     }
 
-    /* 3. THE ACTUAL TEXT: Keep it readable but not blocking */
+    /* 2. THE WORDS: Make ONLY the words clickable, not the empty space around them */
     .spoon-instructions h2, 
     .spoon-instructions p {
-        position: relative !important;
-        z-index: 2 !important; 
-        pointer-events: auto !important; /* So you can still interact with text if needed */
+        width: 100% !important;      /* Let them use the full 95% width */
+        margin: 5px auto !important;
+        pointer-events: auto !important; /* You can still touch the actual text */
+        text-align: center !important;
     }
 
-    /* 4. THE PLATE: Make sure it's the very bottom layer */
-    .metalplate-bg {
-        z-index: 0 !important;
-        pointer-events: none !important; /* Finger ignores the plate entirely */
+    /* 3. THE FOOD: The 'Front Row' Seat */
+    .food-item, .plate-food, [class*="food"], [class*="kimchi"] { 
+        display: block !important;
+        position: relative !important;
+        z-index: 9999 !important;    /* Force to the very front */
+        pointer-events: auto !important; 
+        width: 280px !important;
+        margin: 0 auto !important;
+        cursor: pointer !important;
     }
     .contact-section {
         width: 90% !important; 
