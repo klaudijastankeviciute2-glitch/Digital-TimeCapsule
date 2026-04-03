@@ -619,13 +619,12 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
    .earphones {
-       display: block !important;
+      display: block !important;
         position: absolute !important;
-        width: 45% !important; 
-        left: -5% !important;   
-        top: 2% !important;    
+        width: 40% !important; 
+        left: 0% !important;     
+        top: 5% !important;    
         z-index: 1 !important; 
-        pointer-events: none;
     }
 
     .turtle {
