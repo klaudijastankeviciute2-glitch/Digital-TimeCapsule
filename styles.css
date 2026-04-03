@@ -621,10 +621,11 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
    .earphones {
        display: block !important;
         position: absolute !important;
-        width: 55% !important; 
-        left: -5% !important;  
+        width: 45% !important; 
+        left: -5% !important;   
         top: 2% !important;    
-        z-index: 5 !important;  
+        z-index: 1 !important; 
+        pointer-events: none;
     }
 
     .turtle {
