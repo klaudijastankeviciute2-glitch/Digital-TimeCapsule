@@ -604,9 +604,11 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 
 @media screen and (max-width: 768px) {
     body { 
-    padding: 10px; 
-    box-sizing: border-box; 
-}
+        background: white !important; /* OR your preferred color */
+        padding: 10px; 
+        box-sizing: border-box; 
+    }
+    
     .home-logo, .side-logo {
         left: 20px;
         top: 10%;
