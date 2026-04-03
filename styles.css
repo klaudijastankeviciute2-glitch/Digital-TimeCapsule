@@ -713,46 +713,60 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         margin: 0 !important;
       }
     
- .recipe-container, .plate-section {
-        display: block !important; /* Switch to block to allow absolute children */
+ Understood. Speed is the priority. Here is the direct, "Nuclear" fix to center everything—Plate and Food—in one clean vertical column.
+
+Replace your entire Food/Recipe media query section with this:
+
+CSS
+    /* 1. THE CONTAINER: Center everything in a column */
+    .recipe-container, .plate-section, #recipe-container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;    /* FORCES HORIZONTAL CENTERING */
+        justify-content: flex-start !important;
         width: 100% !important;
         height: auto !important;
-        min-height: 1200px !important;
-        overflow-x: auto !important; /* This enables the horizontal swipe */
-        overflow-y: visible !important;
-        -webkit-overflow-scrolling: touch;
-        position: relative !important;
-        white-space: nowrap !important; /* Prevents items from wrapping down */
+        min-height: 100vh !important;
+        overflow-x: hidden !important;     /* Kills the side-slide */
+        overflow-y: auto !important;       /* Allows normal scrolling */
+        padding: 60px 0 !important;
+        background: #ffffff !important;
     }
 
-    /* 2. THE FOOD: Stay on the left 'track' */
+    /* 2. THE FOOD ITEMS: Forced center */
     .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
-        display: block !important;
         position: relative !important;
-        width: 280px !important;
-        margin: 20px 0 20px 20px !important; /* Keeps food on the left */
+        display: block !important;
+        width: 280px !important;           /* Consistent size */
+        margin: 20px auto !important;      /* Centers the image */
+        top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
         transform: none !important;
+        z-index: 10 !important;
     }
 
-    /* 3. THE PLATE: Hidden off the RIGHT edge */
+    /* 3. THE PLATE/TEXT: Forced center */
     .spoon-instructions {
-        position: absolute !important; 
-        top: 60px !important;      /* Adjust this to align with specific food */
-        
-        /* THIS IS THE KEY: */
-        left: 100% !important;     /* Pushes the plate exactly off the right edge */
-        margin-left: 20px !important; /* Adds a small gap before the plate starts */
-        
-        width: 320px !important;   /* Fixed width so it doesn't squish */
-        display: inline-block !important;
-        text-align: center !important;
+        position: relative !important;
+        display: block !important;
+        width: 90% !important;
+        margin: 40px auto !important;      /* Centers the text block */
+        text-align: center !important;     /* Centers text inside */
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
         transform: none !important;
     }
 
-    /* 4. THE TEXT: Clean up for mobile */
-    .spoon-instructions h2 { font-size: 2.2rem !important; white-space: normal !important; }
-    .spoon-instructions p { font-size: 1.4rem !important; white-space: normal !important; }
+    /* 4. TEXT SIZE: Ensure it fits the screen */
+    .spoon-instructions h2 { font-size: 2.2rem !important; margin: 0 auto !important; }
+    .spoon-instructions p { font-size: 1.4rem !important; margin: 0 auto !important; }
+
+    /* 5. HIDE EXTRA ASSETS */
+    .metalplate-bg, .spoon-bg, .flower-bg, .flower2-bg {
+        display: none !important;
+    }
     
     .contact-section {
         width: 90% !important; 
