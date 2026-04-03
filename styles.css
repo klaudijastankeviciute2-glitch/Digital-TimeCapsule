@@ -615,97 +615,85 @@ The issue was the "Global Overrides" and the composition-container changes. Use 
 The "Safe" Mobile Fix
 CSS
 @media screen and (max-width: 768px) {
-    /* 1. MUSIC TAB ONLY */
-    .pod-container, .music-container {
+   #pod-container, .pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        width: 100% !important;
+        width: 100vw !important;
         height: auto !important;
-        margin-top: 60px !important;
-        padding-bottom: 40px !important;
-    }
-
-    .pod-bg {
-        width: 100% !important; 
-        max-width: 300px !important; /* Forces the giant pod to be small */
-        height: auto !important;
-        position: relative !important;
-        left: 0 !important;
-        transform: none !important;
+        margin: 40px 0 !important;
+        padding: 0 !important;
+        transform: scale(0.7) !important; /* Forces it to be 30% smaller */
+        transform-origin: top center !important;
     }
 
     .player-screen {
-        position: relative !important; 
-        width: 180px !important;       /* Smaller screen */
-        height: 110px !important; 
-        top: 0 !important;
+        position: relative !important;
+        width: 250px !important; 
+        height: 150px !important;
         left: 0 !important;
+        top: 0 !important;
         transform: none !important;
-        margin: 15px auto !important;
-        aspect-ratio: auto !important;
+        margin-bottom: 20px !important;
     }
 
     .controls {
-        display: flex !important;
-        position: relative !important;
+        gap: 20px !important;
+        transform: none !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 10px !important;          /* Tight gap */
-        transform: none !important;
-        margin-top: 10px !important;
     }
 
-    .controls button {
-        width: 45px !important;
-        height: 45px !important;
-    }
-
-    /* 2. FOOD TAB ONLY - CENTERED STACK */
-    .recipe-container, .plate-section {
+    /* 2. THE FOOD TAB - FORCE CENTERING & SCROLLING */
+    #recipe-container, .recipe-container, .plate-section {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        width: 100% !important;
         height: auto !important;
-        min-height: 100vh !important;
-        overflow-y: auto !important;
-        padding: 60px 0 !important;
+        overflow: visible !important;
     }
 
-    .food-item, .plate-food, .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese {
+    /* This targets the box that was stuck on the left */
+    #api-recipe-box {
         position: relative !important;
-        width: 240px !important;
-        margin: 15px auto !important;
+        right: auto !important;
+        left: auto !important;
+        bottom: auto !important;
+        margin: 20px auto !important;
+        width: 90% !important;
+        max-width: none !important;
+    }
+
+    /* Reset all ingredients from the desktop 'Absolute' positions */
+    .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese, .food-item {
+        position: relative !important;
+        display: block !important;
+        width: 200px !important;
+        margin: 10px auto !important;
         top: 0 !important;
         left: 0 !important;
+        right: 0 !important;
         transform: none !important;
-        display: block !important;
     }
 
     .spoon-instructions {
         position: relative !important;
-        width: 90% !important;
         margin: 30px auto !important;
-        text-align: center !important;
-        top: 0 !important;
+        width: 100% !important;
         left: 0 !important;
+        top: 0 !important;
         transform: none !important;
+        text-align: center !important;
     }
 
-    /* Recovering the font style you liked */
-    .spoon-instructions h2 { 
-        font-family: 'Georgia', serif !important;
-        font-size: 28px !important; 
-    }
-    .spoon-instructions p { 
-        font-family: 'Georgia', serif !important;
-        font-size: 18px !important; 
-    }
+    /* 3. PROTECT THE HOME SCREEN */
+    /* We are NOT touching .composition-container or .bag-image here */
 
-    /* 3. HIDE ONLY BACKGROUND DECORATIONS (To keep it clean) */
-    .ipodbg-bg, .buds-bg, .butterfly-bg, .butterfly2-bg, 
-    .microphones-bg, .metalplate-bg, .spoon-bg, .flower-bg, 
-    .flower2-bg, .venus-bg, .venus2-bg {
+    /* 4. HIDE DECORATIONS THAT BLIND THE VIEW */
+    .ipodbg-bg, .buds-bg, .butterfly-bg, .butterfly2-bg, .microphones-bg, .metalplate-bg, .spoon-bg {
         display: none !important;
+        }
+}
     }
 }
