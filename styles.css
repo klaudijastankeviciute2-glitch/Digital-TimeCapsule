@@ -653,63 +653,61 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         z-index: 4;
     }
      
- .pod-container, .music-container {
+.pod-container, .music-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        justify-content: flex-start !important;
-        width: 90% !important;
-        max-width: 350px !important;
-        height: auto !important;
-        min-height: 450px !important;
-        margin: 20px auto !important;
-        padding: 20px !important;
-        background: #222 !important; 
-        border-radius: 30px !important;
+        width: 95% !important;   /* Fits inside the phone screen */
+        max-width: 380px !important;
+        height: auto !important; /* Grows with your playlist */
+        margin: 10px auto !important;
+        padding: 15px !important;
+        background: #1a1a1a !important; /* Dark sleek background */
+        border-radius: 20px !important;
         position: relative !important;
-        transform: none !important;
+        overflow: hidden !important; /* Prevents the 'half-white' cutoff */
+        transform: none !important;  /* Kills any weird zooming */
     }
-    
+
+    /* 2. HIDE THE BROKEN IMAGE */
     .pod-bg {
         display: none !important;
     }
 
+    /* 3. THE PLAYER SCREEN & PLAYLIST */
     .player-screen {
         display: block !important;
-        position: relative !important; 
+        position: relative !important; /* Stacks naturally */
         width: 100% !important;
-        height: 250px !important;
+        height: auto !important;
+        min-height: 250px !important;
         background: #000 !important;
-        border-radius: 15px !important;
-        margin-bottom: 30px !important;
+        border-radius: 10px !important;
+        margin-bottom: 20px !important;
         top: 0 !important;
         left: 0 !important;
         transform: none !important;
-        z-index: 10 !important;
     }
 
+    /* 4. THE CONTROLS */
     .controls {
         display: flex !important;
-        position: relative !important; 
+        position: relative !important;
         width: 100% !important;
         justify-content: center !important;
-        gap: 15px !important;
-        bottom: 0 !important;
+        gap: 10px !important;
+        padding: 10px 0 !important;
+        top: 0 !important;
         left: 0 !important;
         transform: none !important;
-        z-index: 20 !important;
-        padding-bottom: 20px !important;
     }
 
     .controls button {
-        width: 65px !important;
-        height: 65px !important;
+        width: 50px !important;
+        height: 50px !important;
         border-radius: 50% !important;
-        font-size: 0.9rem !important;
-        background: #444 !important;
-        color: white !important;
-        border: 1px solid #666 !important;
-    } 
+        font-size: 0.8rem !important;
+    }
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
     
