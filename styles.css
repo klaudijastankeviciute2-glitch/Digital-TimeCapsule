@@ -741,6 +741,14 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         margin: 0 auto !important;
     }
 
+.spoon-instructions h2 { 
+        font-size: 2rem !important; 
+        color: #000000 !important; /* SOLID BLACK TITLE */
+        font-weight: 800 !important;
+        margin-bottom: 10px !important;
+        padding: 0 !important;
+    }
+    
     /* 4. THE PARAGRAPH: Forced to the bottom */
     .spoon-instructions p { 
         display: block !important;
@@ -752,6 +760,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         width: 100% !important;
         visibility: visible !important;
         opacity: 1 !important;
+         }
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
