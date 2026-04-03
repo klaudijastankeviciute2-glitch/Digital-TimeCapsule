@@ -654,25 +654,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         transform: rotate(-30deg) !important;
         z-index: 4;
     }
-     
-.pod-container, .music-container {
-     display: block !important;
-        position: relative !important;
-        width: 95% !important;   /* Fills the phone width */
-        max-width: 380px !important; /* Makes the Pod physically bigger */
-        height: 550px !important;    /* Tall enough to fit screen + buttons */
-        margin: 40px auto !important; /* Centers the whole unit on the screen */
-        background: #1a1a1a !important; /* Dark Pod Body */
-        border-radius: 40px !important;
-        border: 4px solid #333 !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-        
-        /* KILL DESKTOP COORDINATES */
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-    }
 
     /* 2. THE PLAYER SCREEN: Positioned inside the Big Pod */
     .player-screen {
@@ -711,6 +692,9 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
+    .pod-container, .music-container {
+    display: none !important; /* This stops it from showing up entirely */
+}
    /* 1. THE LAYOUT: Stack them so they don't overlap */
     .plate-section, .recipe-container {
         display: flex !important;
