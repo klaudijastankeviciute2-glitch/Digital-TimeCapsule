@@ -619,18 +619,20 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
 
     .earphones {
-        width: 70% !important;
-        left: -5% !important;
-        top: 5% !important;
-        z-index: 6;
+      display: block !important;
+        position: absolute !important;
+        width: 75% !important; 
+        left: 5% !important;   
+        top: 2% !important;    
+        z-index: 15 !important; 
     }
 
     .turtle {
-        display: block !important; /* Forces it to show up */
+        display: block !important;
         width: 50% !important; 
-        left: 20% !important; /* Moves it away from the earphones */
-        top: 25% !important; /* Moves it down so it's not buried */
-        z-index: 9; /* Brings it to the very front */
+        left: 20% !important; 
+        top: 25% !important; 
+        z-index: 9; 
     }
 
     .bread {
