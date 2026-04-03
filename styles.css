@@ -709,78 +709,72 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.plate-section, .recipe-container {
+#metalplate-bg, .metalplate-bg, #spoon-bg, .spoon-bg, .spoon-instructions img {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important; /* Makes them 'untouchable' */
+    }
+
+    /* 2. THE FOOD: Bigger, Centered, and Tappable */
+    .food-item, .plate-food, [class*="food"] { 
+        display: block !important;
+        visibility: visible !important;
+        position: relative !important;
+        width: 300px !important;       /* Even bigger now */
+        height: auto !important;
+        margin: 20px auto !important;
+        z-index: 1000 !important;      /* Higher than everything else */
+        pointer-events: auto !important; /* FORCES it to be tappable */
+        cursor: pointer !important;
+        transform: none !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+
+    /* 3. THE CONTAINER: The 'Background' for your text */
+    .plate-section, .recipe-container, #recipe-section {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         width: 95% !important;
         margin: 20px auto !important;
-        background: #111 !important; /* Solid dark background */
+        background: #111 !important;   /* Solid black/dark grey */
         padding: 20px !important;
         border-radius: 20px !important;
-        min-height: 400px !important;
         height: auto !important;
+        min-height: 500px !important;
         overflow: visible !important;
-    } /* Added the missing bracket here! */
-
-    /* 2. THE FOOD: Bigger and Centered */
-    .food-item, .plate-food, [class*="food"] { 
-        display: block !important;
-        visibility: visible !important;
-        position: relative !important;
-        width: 280px !important; /* Increased from 200px */
-        height: auto !important;
-        margin: 10px auto 20px auto !important;
-        z-index: 100 !important;
-        transform: none !important;
-        top: 0 !important;
-        left: 0 !important;
     }
 
-    /* 3. THE TEXT (Spoon Instructions) */
-    .spoon-instructions {
-        width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
-    }
-
+    /* 4. THE TEXT: Clean Black and White */
     .spoon-instructions h2 { 
         font-size: 1.8rem !important; 
-        color: #ffffff !important; /* Changed from yellow to white for better look on dark */
-        margin-bottom: 10px !important;
+        color: #ffffff !important;      /* White Title */
+        text-align: center !important;
     }
 
     .spoon-instructions p { 
         font-size: 1.2rem !important; 
-        color: #cccccc !important; /* Light grey so you can see it */
+        color: #bbbbbb !important;      /* Light Grey Paragraph */
+        text-align: center !important;
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
     }
 
-    /* 4. THE API RECIPE: Forced Visibility */
-    /* Check your HTML: if it's an ID, use #recipe-result. If it's a class, use .recipe-result */
-    #recipe-result, .recipe-api-results, .recipe-display, #recipe-container {
+    /* 5. THE API: The 'Nuclear' Visibility Fix */
+    /* Add every possible ID/Class name your API might be using */
+    #recipe-result, .recipe-api-results, #recipe-display, .recipe-content {
         display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
         position: relative !important;
         width: 100% !important;
-        min-height: 300px !important; /* Ensures it has a 'shape' even if empty */
-        background: #ffffff !important; /* White card */
+        min-height: 250px !important;
+        background: #ffffff !important; /* White box */
         color: #000000 !important;    /* Black text */
-        padding: 20px !important;
-        border-radius: 10px !important;
+        padding: 15px !important;
         margin-top: 20px !important;
-        z-index: 999 !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-    }
-
-    /* 5. REMOVE CLUTTER */
-    .metalplate-bg, .spoon-bg, .spoon-instructions img {
-        display: none !important;
+        z-index: 2000 !important;     /* Top layer */
     }
     .contact-section {
         width: 90% !important; 
