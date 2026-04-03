@@ -709,26 +709,37 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-  .spoon-instructions {
+.spoon-instructions {
         display: block !important;
-        width: 50% !important;
+        /* CHANGE: Increase width so the 'box' isn't tiny */
+        width: 90% !important; 
         text-align: center !important;
-        margin-top: 20px !important;
+        margin: 20px auto !important; /* Centering the 90% box */
     }
 
     .spoon-instructions h2 { 
-        color: #000000 !important; /* Black Title */
-        font-size: 1.8rem !important;
+        color: #000000 !important; 
+        /* CHANGE: Slightly smaller font size for mobile screens */
+        font-size: 1.4rem !important; 
         margin: 10px 0 !important;
+        line-height: 1.2 !important;
     }
 
     .spoon-instructions p { 
-        color: #333333 !important; /* Dark Grey Paragraph */
-        width: 40% !important;
+        color: #333333 !important; 
+        /* CHANGE: Increase width to 100% of the parent (90%) */
+        width: 100% !important; 
+        /* CHANGE: Smaller font size so it looks like a normal paragraph */
+        font-size: 1rem !important; 
         margin: 0 auto !important;
+        line-height: 1.4 !important;
     }
     
-    .metalplate-bg { width: 180% !important; right: -40% !important; }
+    /* Keeping your plate logic exactly as you had it */
+    .metalplate-bg { 
+        width: 180% !important; 
+        right: -40% !important; 
+    }
 
     .contact-section {
         width: 90% !important; 
