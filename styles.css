@@ -687,18 +687,26 @@ html, body {
     }
 
     /* 5. THE BUTTONS: Sits below the screen */
-    .controls {
+   .controls {
         display: flex !important;
         position: relative !important; 
         width: 100% !important;
         justify-content: center !important;
         gap: 15px !important;
+        margin-top: 20px !important; /* Adds space so they don't overlap the screen */
+        z-index: 9999 !important;    /* Forces them to the very top layer */
     }
 
     .controls button {
+        display: inline-block !important; /* Ensures they aren't hidden */
         width: 60px !important;
         height: 45px !important;
+        background-color: #444 !important; /* Dark grey so you can see them */
+        color: white !important;           /* White text/icons */
         font-size: 0.8rem !important;
+        border: 1px solid #666 !important;
+        visibility: visible !important;    /* Overrides any accidental hiding */
+        opacity: 1 !important;
     }
     .spoon-instructions h2 { font-size: 1.8rem !important; }
     .spoon-instructions p { font-size: 1.2rem !important; }
