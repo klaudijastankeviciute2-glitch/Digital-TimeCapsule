@@ -709,12 +709,76 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
     
-    .spoon-instructions h2 { font-size: 1.8rem !important; }
-    .spoon-instructions p { font-size: 1.2rem !important; }
-    
-    .metalplate-bg { width: 180% !important; right: -40% !important; }
+  .plate-container, .recipe-section {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 600px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        overflow: hidden !important; /* Keeps the big plate from breaking the page */
+    }
 
-    
+    .metalplate-bg { 
+        width: 150% !important; /* Slightly smaller than 180% to help fit */
+        position: absolute !important;
+        left: 50% !important;
+        top: 0 !important;
+        transform: translateX(-50%) !important; /* Centers the plate perfectly */
+        z-index: 1 !important;
+    }
+
+    /* 2. THE FOOD: Force it onto the plate */
+    .food-item, .plate-food {
+        position: relative !important;
+        z-index: 5 !important;
+        width: 60% !important; /* Shrinks food to fit the mobile plate */
+        margin-top: 50px !important; /* Moves food down onto the plate surface */
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+    }
+
+    /* 3. THE SPOON & INSTRUCTIONS: Bring the font back */
+    .spoon-instructions {
+        position: relative !important;
+        z-index: 10 !important;
+        width: 80% !important;
+        text-align: center !important;
+        margin: 20px auto !important;
+        top: auto !important; /* Kills desktop floating */
+        left: auto !important;
+    }
+
+    .spoon-instructions h2 { 
+        font-size: 1.4rem !important; /* Slightly smaller for mobile */
+        color: white !important; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+    }
+
+    .spoon-instructions p { 
+        font-size: 1rem !important; 
+        line-height: 1.4 !important;
+    }
+
+    /* 4. THE API RECIPE: Fix the 10% visibility */
+    .recipe-api-results, #recipe-container {
+        position: relative !important;
+        width: 90% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        max-height: 400px !important; /* Adds a scroll if recipe is long */
+        overflow-y: auto !important;
+        background: rgba(0, 0, 0, 0.8) !important; /* Dark background so text is readable */
+        border-radius: 15px !important;
+        padding: 15px !important;
+        margin: 20px auto !important;
+        z-index: 20 !important;
+        left: 0 !important;
+        transform: none !important; 
+    }
+
     .contact-section {
         width: 90% !important; 
         margin: 20px auto;
