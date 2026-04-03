@@ -654,12 +654,12 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
     }
      
   .pod-container, .music-container {
-        position: relative !important;
-        width: 320px !important;  /* Wider for the phone */
-        height: 500px !important; /* Taller for the phone */
+    position: relative !important;
+        width: 320px !important;  /* Width of a standard phone screen */
+        height: 550px !important; /* FORCED HEIGHT: This creates the 'room' */
         margin: 20px auto !important;
         display: block !important;
-        transform: scale(1) !important; /* Stop the "Zoom out" effect here */
+        overflow: visible !important;
     }
 
     .pod-bg {
@@ -667,32 +667,31 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        height: 100% !important;
-        object-fit: stretch !important; /* Forces the image to fill the 500px height */
+        height: 100% !important; /* Matches the 550px container */
+        object-fit: fill !important; /* This is the secret: it forces the image to stretch */
         z-index: 1;
     }
 
     .player-screen {
-   display: block !important;
+  display: block !important;
         position: absolute !important;
-        width: 85% !important;   /* Makes it fill the width of the pod */
-        height: 180px !important; /* Fixed height for the screen */
-        top: 40px !important;    /* Positioned in the top "window" */
+        width: 80% !important;   
+        height: 200px !important; /* Give your player enough height here */
+        top: 45px !important;    /* Positioned in the screen 'window' */
         left: 50% !important;
         transform: translateX(-50%) !important;
         background: #000 !important;
         z-index: 10 !important;
+        border-radius: 10px;
     }
 
     .controls {
    display: flex !important;
         position: absolute !important;
         width: 80% !important;
-        bottom: 50px !important; /* Higher up from the bottom */
+        bottom: 60px !important; /* Pushed up onto the click-wheel */
         left: 50% !important;
         transform: translateX(-50%) !important;
-        justify-content: center !important;
-        gap: 15px !important;
         z-index: 20 !important;
     }
 
