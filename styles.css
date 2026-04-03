@@ -709,42 +709,52 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-.food-item, .plate-food, [class*="food"] { 
+html, body {
+        overflow-x: hidden !important; /* Prevents side-scrolling */
+    }
+
+    /* Target the main section and any possible parent containers */
+    .plate-section, 
+    .food-section, 
+    .recipe-container, 
+    main, 
+    #main-content {
         display: block !important;
-        visibility: visible !important;
-        
-        /* THE RESET: This is the most important part */
-        position: relative !important; /* Changes from absolute to relative */
-        top: 0 !important;            /* Resets desktop 'top' */
-        left: 0 !important;           /* Resets desktop 'left' */
-        transform: none !important;    /* Resets desktop 'translate' */
-        
-        /* THE CENTERING */
-        width: 300px !important;       
-        height: auto !important;
-        margin: 20px auto !important;  /* Centers horizontally in a relative container */
-        
-        z-index: 100 !important;
-        pointer-events: auto !important;
-    }
-
-    /* THE CONTAINER: Must be display: block or flex to allow margin: auto to work */
-    .plate-section, .food-section {
-        display: block !important; 
-        text-align: center !important; /* Backup centering for inline-block items */
-        width: 100% !important;
-        left: 0 !important;
+        width: 100vw !important;  /* Force 100% of the Viewport Width */
+        max-width: 100% !important;
         margin: 0 !important;
+        padding: 0 !important;
+        left: 0 !important;
+        position: relative !important;
+        text-align: center !important;
     }
 
-    /* 3. THE TEXT WRAPPER */
+    /* 2. THE FOOD: Using a 'Fixed' Margin Reset */
+    .food-item, .plate-food, [class*="food"] { 
+        display: block !important;
+        position: relative !important;
+        
+        /* The Centering Combo */
+        width: 280px !important;      /* Slightly smaller to ensure it fits 390px screens */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        
+        /* Killing Desktop Pushes */
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        float: none !important;
+    }
+
+    /* 3. THE TEXT WRAPPER: Make sure it isn't floating left */
     .spoon-instructions {
         width: 100% !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
+        margin: 20px auto !important;
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
+        align-items: center !important; /* Horizontal centering in flex */
+        left: 0 !important;
     }
 
     /* 4. THE TITLE: Black and Bold */
