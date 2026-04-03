@@ -608,12 +608,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         overflow-x: hidden; 
     }
 
-   I hear you—I touched the global settings and it threw off your Home screen. Let’s isolate the fixes so they only affect the Music and Food pages, leaving your Home (Bag) exactly how you had it.
-
-The issue was the "Global Overrides" and the composition-container changes. Use this version instead. It keeps the centered food and the fixed music player, but removes the part that was messing with your Home screen.
-
-The "Safe" Mobile Fix
-CSS
+    
 @media screen and (max-width: 768px) {
    #pod-container, .pod-container, .music-container {
         display: flex !important;
@@ -643,8 +638,7 @@ CSS
         width: 100% !important;
         justify-content: center !important;
     }
-
-    /* 2. THE FOOD TAB - FORCE CENTERING & SCROLLING */
+    
     #recipe-container, .recipe-container, .plate-section {
         display: flex !important;
         flex-direction: column !important;
@@ -654,7 +648,6 @@ CSS
         overflow: visible !important;
     }
 
-    /* This targets the box that was stuck on the left */
     #api-recipe-box {
         position: relative !important;
         right: auto !important;
@@ -665,7 +658,6 @@ CSS
         max-width: none !important;
     }
 
-    /* Reset all ingredients from the desktop 'Absolute' positions */
     .kimchi, .pickles, .hummus, .cheese, .fish, .sprout, .goatcheese, .food-item {
         position: relative !important;
         display: block !important;
@@ -687,13 +679,7 @@ CSS
         text-align: center !important;
     }
 
-    /* 3. PROTECT THE HOME SCREEN */
-    /* We are NOT touching .composition-container or .bag-image here */
-
-    /* 4. HIDE DECORATIONS THAT BLIND THE VIEW */
     .ipodbg-bg, .buds-bg, .butterfly-bg, .butterfly2-bg, .microphones-bg, .metalplate-bg, .spoon-bg {
         display: none !important;
-        }
-}
     }
 }
