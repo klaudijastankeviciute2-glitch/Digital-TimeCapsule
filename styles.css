@@ -603,16 +603,10 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
 /* Mobile */
 
 @media screen and (max-width: 768px) {
-* { 
-        background: red !important; 
-    }
-    
     body { 
     padding: 10px; 
     box-sizing: border-box; 
 }
-
-    
     .home-logo, .side-logo {
         left: 20px;
         top: 10%;
@@ -714,63 +708,66 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-#recipe-container, .plate-section, .food-section {
+    /* 2. THE CAGE: Force a vertical stack (Food on top, Text on bottom) */
+    .plate-section, .recipe-container, #recipe-section {
         display: flex !important;
         flex-direction: column !important; 
         align-items: center !important;
         width: 100% !important;
         height: auto !important;
+        padding: 20px 0 !important;
         margin: 0 !important;
-        padding: 0 !important;
     }
 
-    /* 2. THE FOOD: Front Row & Tappable */
-    #food-display, .food-item, [id*="food"], [class*="food"] {
+    /* 3. THE FOOD: Make it the Hero */
+    .food-item, .plate-food, [id*="food"], [class*="food"] {
         display: block !important;
         position: relative !important;
-        width: 300px !important; /* LARGE FOOD */
-        height: auto !important;
-        margin: 20px auto !important;
         
-        /* THE TOUCH FIX: Puts Kimchi/Pickles in front of the 'glass' */
-        z-index: 99999 !important; 
+        /* FORCE SIZE: Make the food big again */
+        width: 320px !important; 
+        height: auto !important;
+        margin: 0 auto 30px auto !important; /* Bottom margin pushes text away */
+        
+        /* THE TOUCH FIX: Ensure individual items are clickable */
+        z-index: 9999 !important;
         pointer-events: auto !important;
         cursor: pointer !important;
+        
+        /* KILL DESKTOP GHOSTS */
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
     }
 
-    /* 3. THE INSTRUCTIONS: Shrink the 'Shield' */
-    #spoon-instructions, .spoon-instructions {
+    /* 4. THE INSTRUCTIONS: Keep the box small and away from the food */
+    .spoon-instructions {
         display: block !important;
-        width: 100% !important; /* Full width means the box is shorter */
+        width: 100% !important;
         margin: 0 auto !important;
         padding: 0 !important;
-        position: relative !important;
-        
-        /* THE TOUCH FIX: Makes the box transparent to your finger */
-        pointer-events: none !important; 
-        z-index: 1 !important; 
+        text-align: center !important;
     }
 
-    /* 4. THE TEXT: Attack the size directly with Pixels */
+    /* 5. ATTACK THE FONT SIZE: Small, Black, and Neat */
     .spoon-instructions h2 { 
-        color: #000000 !important;
-        font-size: 22px !important; /* Forced small size */
-        margin: 10px 0 !important;
-        line-height: 1.1 !important;
-        pointer-events: auto !important; /* Only words are clickable */
+        color: #000000 !important; /* PURE BLACK */
+        font-size: 22px !important; /* Locked small size */
+        margin-bottom: 8px !important;
+        line-height: 1.2 !important;
+        font-weight: 800 !important;
     }
 
     .spoon-instructions p { 
-        color: #333333 !important;
-        font-size: 16px !important; /* Forced small size */
+        color: #333333 !important; /* DARK GREY */
+        font-size: 16px !important; /* Locked small size */
         width: 85% !important;
         margin: 0 auto !important;
         line-height: 1.4 !important;
-        pointer-events: auto !important;
     }
 
-    /* 5. THE GHOSTS: Ensure the plate isn't blocking anything */
-    #metalplate-bg, .metalplate-bg, #spoon-bg {
+    /* 6. REMOVE CLUTTER: No invisible plates blocking your fingers */
+    .metalplate-bg, .spoon-bg, #metalplate-bg, #spoon-bg, .spoon-instructions img {
         display: none !important;
         visibility: hidden !important;
     }
