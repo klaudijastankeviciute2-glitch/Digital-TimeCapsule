@@ -621,7 +621,7 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
    .earphones {
       display: block !important;
         position: absolute !important;
-        width: 40% !important; 
+        width: 60% !important; 
         left: 0% !important;     
         top: 5% !important;    
         z-index: 1 !important; 
