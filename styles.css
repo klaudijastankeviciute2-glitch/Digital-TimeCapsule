@@ -618,10 +618,36 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         transform: translateY(20px);
     }
 
-    .earphones, .turtle, .bread, .clipboard {
+    .earphones {
+        width: 70% !important;
+        left: -5% !important;
+        top: 5% !important;
+        z-index: 6;
+    }
+
+    .turtle {
+        display: block !important; /* Forces it to show up */
+        width: 50% !important; 
+        left: 20% !important; /* Moves it away from the earphones */
+        top: 25% !important; /* Moves it down so it's not buried */
+        z-index: 9; /* Brings it to the very front */
+    }
+
+    .bread {
+        width: 50% !important;
+        left: 40% !important;
+        top: 15% !important;
+        transform: rotate(-30deg) !important;
+        z-index: 4;
+    }
+
+    .clipboard {
         width: 80% !important;
-        left: 10% !important;
-        right: auto !important;
+        right: -10% !important;
+        left: auto !important;
+        top: 0% !important;
+        z-index: 1;
+        }
     }
 
     .modal-content, .modal-content.layered-modal {
