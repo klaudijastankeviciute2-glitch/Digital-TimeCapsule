@@ -682,44 +682,6 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         display: none !important;
          }
     
-width: 90vw !important;      /* Force it to 90% of the phone width */
-        height: auto !important;     /* Let it shrink vertically */
-        min-height: 300px !important;
-        max-width: 350px !important;  /* Ensure it doesn't get too big */
-        padding: 20px !important;
-        margin: 0 auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-
-    /* 2. THE BACKGROUND & NESTED IMAGES */
-    .modal-bg-image {
-        width: 100% !important;
-        height: auto !important;
-        position: relative !important;
-        top: 0 !important;
-        opacity: 0.5 !important;      /* Lighten so text is readable */
-    }
-
-    .nested-image {
-        width: 50% !important;       /* Shrink the center image */
-        position: relative !important;
-        top: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-        margin: 10px auto !important;
-    }
-
-    /* 3. THE PARAGRAPHS: Shrink the text inside the image */
-    .side-text-container {
-        position: relative !important;
-        width: 100% !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        transform: none !important;
-    }
-
     #modalTitle {
         font-size: 22px !important;   /* Shrink Title */
         margin-bottom: 10px !important;
