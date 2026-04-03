@@ -708,68 +708,51 @@ transform: translateY(-40%) rotate(90deg) scaleY(-1);
         font-size: 0.8rem !important;
        } 
 
-    /* 2. THE CAGE: Force a vertical stack (Food on top, Text on bottom) */
-    .plate-section, .recipe-container, #recipe-section {
+   /* 1. THE LAYOUT: Stack them so they don't overlap */
+    .plate-section, .recipe-container {
         display: flex !important;
         flex-direction: column !important; 
         align-items: center !important;
+        background: white !important; /* Fixes the red background */
         width: 100% !important;
         height: auto !important;
-        padding: 20px 0 !important;
-        margin: 0 !important;
     }
 
-    /* 3. THE FOOD: Make it the Hero */
-    .food-item, .plate-food, [id*="food"], [class*="food"] {
+    /* 2. THE FOOD: Make it big and clickable */
+    .food-item, .plate-food, [class*="food"], [class*="kimchi"] {
         display: block !important;
         position: relative !important;
-        
-        /* FORCE SIZE: Make the food big again */
-        width: 320px !important; 
-        height: auto !important;
-        margin: 0 auto 30px auto !important; /* Bottom margin pushes text away */
-        
-        /* THE TOUCH FIX: Ensure individual items are clickable */
-        z-index: 9999 !important;
-        pointer-events: auto !important;
-        cursor: pointer !important;
-        
-        /* KILL DESKTOP GHOSTS */
-        left: 0 !important;
-        top: 0 !important;
-        transform: none !important;
+        width: 320px !important;      /* LARGE FOOD */
+        margin: 20px auto !important;
+        z-index: 9999 !important;      /* Puts food in FRONT of the text box */
+        pointer-events: auto !important; /* FORCES TAPPABILITY */
     }
 
-    /* 4. THE INSTRUCTIONS: Keep the box small and away from the food */
+    /* 3. THE INSTRUCTIONS: Small, Black, and Underneath */
     .spoon-instructions {
         display: block !important;
         width: 100% !important;
-        margin: 0 auto !important;
-        padding: 0 !important;
+        margin-top: 10px !important;
         text-align: center !important;
+        pointer-events: none !important; /* Clicks pass through to food */
     }
 
-    /* 5. ATTACK THE FONT SIZE: Small, Black, and Neat */
     .spoon-instructions h2 { 
-        color: #000000 !important; /* PURE BLACK */
-        font-size: 22px !important; /* Locked small size */
-        margin-bottom: 8px !important;
-        line-height: 1.2 !important;
-        font-weight: 800 !important;
+        color: #000000 !important;    /* BLACK TITLE */
+        font-size: 22px !important;   /* SMALLER SIZE */
+        margin-bottom: 5px !important;
     }
 
     .spoon-instructions p { 
-        color: #333333 !important; /* DARK GREY */
-        font-size: 16px !important; /* Locked small size */
-        width: 85% !important;
+        color: #333333 !important;    /* DARK GREY TEXT */
+        font-size: 16px !important;   /* SMALLER SIZE */
+        width: 90% !important;
         margin: 0 auto !important;
-        line-height: 1.4 !important;
     }
 
-    /* 6. REMOVE CLUTTER: No invisible plates blocking your fingers */
-    .metalplate-bg, .spoon-bg, #metalplate-bg, #spoon-bg, .spoon-instructions img {
+    /* 4. THE GHOSTS: Kill the invisible plates */
+    .metalplate-bg, .spoon-bg, #metalplate-bg, #spoon-bg {
         display: none !important;
-        visibility: hidden !important;
     }
 
     .contact-section {
